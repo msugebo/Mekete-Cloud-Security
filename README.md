@@ -99,7 +99,7 @@ SSH into the control node and follow the steps below:
 - Update the /etc/filebeat/filebeat.yml file to include the host ip, the user name and password.
 - Run the playbook, and navigate to elk public ip address to check that the installation worked as expected.
 
-_ The user will need to run to download the playbook, update the files, etc._
+The user will need to run to download the playbook, update the files, etc._
 
 - update the files: $nano /etc/ansible/files/filebeat-playbook.yml
 - run playbooks: $ansible-playbook /etc/ansible/files/filebeat-playbook.yml
