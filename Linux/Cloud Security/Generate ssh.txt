@@ -1,4 +1,4 @@
-suab@SUAB-001:~$ ssh-keygen
+$ ssh-keygen
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/suab/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
@@ -6,21 +6,15 @@ Enter same passphrase again:
 Your identification has been saved in /home/suab/.ssh/id_rsa
 Your public key has been saved in /home/suab/.ssh/id_rsa.pub
 The key fingerprint is:
-SHA256:lTU3fX3v+a3XS7XXbk1FmDt/0TIhy5W7F7btf9Fo2DM suab@SUAB-001
+SHA256:lTU3fX3v+a3..
 The key's randomart image is:
 +---[RSA 3072]----+
 |            o o=.|
 |           o.o*.*|
 |          o. + ==|
-|         .  o *++|
-|        S    o.OX|
-|            . E+%|
-|             . OX|
-|              ..@|
-|              .=*|
+|      ...
 +----[SHA256]-----+
-suab@SUAB-001:~$
+$
 
-suab@SUAB-001:~$ cat ~/.ssh/id_rsa.pub
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDcM+Qu6twBZKiITjsGPpt7x3yF+YxIAarqwet4Ipvax5HTfygvFaFzKeQZK1wbduR2Ngk0Eij0T6tCHELqAOBH+gsFZ6JWM+PzktAYk6+FcMjq8Sd3MfwYpn4oIwIzLa0vLGdqBjY6JIpt9XrypJMB0U7KXjiLlYki5WuNWxWXXAQu/i5zY+WC/h0mQWj328WDWXm94JXARymfd+Z5594dhXsi9W68WtaYkbjipB6hpStFFwyouNCxZfwGw/qQHqZJ/53lIqxPhNurKhWR6QvladmRzETHnBq5Q3PzSobVx2JW9TtSAr3O/6tRoos0Z3GBpgRQ2DqB/PvMeUQyHXfWkkxggwBy6xd6EWTshzkFz7JZkM9rEF8pCiikjnH/wtgkm/4Pr/mBBiP/nJ8w/dOrhHqstb1jv1u5EooMNefjR2Bs7bv9tgrQBTtDA1HZb5e9fe+BghPEF0+KXsjgVIc2NhuyHsyMbZpD0P/WDC+eq6jhZOy0bUyBcUA4kg/FMsE= suab@SUAB-001
-suab@SUAB-001:~$
+$ cat ~/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC...................
