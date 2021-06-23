@@ -1,0 +1,39 @@
+================ logs ================
+
+
+journalctl
+
+sudo journalctl --list-boots (to see system boot)
+
+
+journalctld -ef
+
+journalctl _UID
+
+
+
+
+sysadmin@UbuntuDesktop:/$ sudo nano /etc/systemd/journald.conf 
+
+[Journal]
+#Storage=auto
+
+[Journal]
+Storage=auto
+
+sysadmin@UbuntuDesktop:/$ sudo systemctl restart systemd-journald
+
+ == attacker
+
+sysadmin@UbuntuDesktop:/$ sudo su badguy
+No passwd entry for user 'badguy'
+
+$journalctl -ef
+
+Apr 17 14:26:34 UbuntuDesktop su[26703]: No passwd entry for user 'badguy'
+Apr 17 14:26:34 UbuntuDesktop su[26703]: FAILED su for badguy by root
+Apr 17 14:26:34 UbuntuDesktop su[26703]: - /dev/pts/0 root:badguy
+
+
+$journalctl _UID=1011
+

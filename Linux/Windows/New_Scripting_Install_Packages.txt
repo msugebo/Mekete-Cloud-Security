@@ -1,0 +1,23 @@
+===== Install Packages with Gitbash and foreach loop ========
+ nano name example.sh1
+$csv=Import-CSV -Path .\chocodemo.csv
+
+foreach ($line in $CSV) {
+        write-Output $line
+        choco uninstall -y $line.name
+        write-Output $line.name 'removed!'
+        choco install -y $line.name
+}
+
+
+              === execute  ===
+
+			  .\example.sh1
+
+
+			  ==================
+
+
+
+
+

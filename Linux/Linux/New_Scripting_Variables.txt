@@ -1,0 +1,58 @@
+
+
+============= Variables ==========
+
+sysadmin@UbuntuDesktop:~$ my_variable='/etc/passwd'
+sysadmin@UbuntuDesktop:~$ echo $my_variable 
+/etc/passwd
+sysadmin@UbuntuDesktop:~$ num=5
+sysadmin@UbuntuDesktop:~$ echo $num 
+5
+
+
+
+========== Environment vaiable =========
+
+sysadmin@UbuntuDesktop:~$ pwd
+/home/sysadmin
+sysadmin@UbuntuDesktop:~$ echo " My present working directory is $PWD."
+My present working directory is /home/sysadmin.
+sysadmin@UbuntuDesktop:~$ echo "my name is $USER."
+my name is sysadmin.
+sysadmin@UbuntuDesktop:~$ echo "my home directory is $HOME."
+my home directory is /home/sysadmin.
+sysadmin@UbuntuDesktop:~$ echo "The name of my computer is $HOSTNAME."
+The name of my computer is UbuntuDesktop.
+sysadmin@UbuntuDesktop:~$ echo "The type of computer is $MACHTYPE."
+The type of computer is x86_64-pc-linux-gnu.
+sysadmin@UbuntuDesktop:~$ echo "My user ID is $UID."
+My user ID is 1000.
+sysadmin@UbuntuDesktop:~$ 
+
+
+====== Common Expanstion ==========
+
+$ file $(find / -iname *.txt 2>/dev/null) > -/Desktop/text\ files ; tail ~/Desktop/text\ files
+
+
+$ echo -e "The files in this directory are: \n$(ls)"
+The files in this directory are: 
+backups
+Cybersecurity-Lesson-Plans
+Desktop
+Documents
+Downloads
+home.tar
+Music
+Pictures
+Projects
+projects.sh
+Public
+python
+research
+research2
+Security_scripts
+Templates
+--verify
+Videos
+view?usp=sharing

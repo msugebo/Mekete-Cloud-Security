@@ -1,0 +1,6 @@
+======= WIFI Security ========
+
+Security
+1. WEP
+2. WPA
+3. WPA2

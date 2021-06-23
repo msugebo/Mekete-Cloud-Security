@@ -1,0 +1,6 @@
+======= Security Onion ========
+
+sudo so-status
+sudo so-restart
+sudo so-replay
+

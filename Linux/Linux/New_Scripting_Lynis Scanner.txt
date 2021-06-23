@@ -1,0 +1,53 @@
+sysadmin@UbuntuDesktop:~$ sudo lynis show help
+[sudo] password for sysadmin: 
+Lynis 2.6.2 - Help
+==========================
+
+Commands:
+audit
+configure
+show
+update
+upload-only
+
+Use 'lynis show help <command>' to see details
+
+
+Options:
+--auditor
+--check-all (-c)
+--cronjob (--cron)
+--debug
+--developer
+--help (-h)
+--license
+--log-file
+--manpage (--man)
+--no-colors --no-log
+--pentest
+--profile
+--plugins-dir
+--quiet (-q)
+--quick (-Q)
+--report-file
+--reverse-colors
+--tests
+--tests-from-category
+--tests-from-group
+--upload
+--verbose
+--version (-V)
+--wait
+
+
+
+
+============= Audit with lynis ===========
+
+sudo lynis audit system (full system scan)
+
+sudo lynis audit --test-from-group php,malware,networking,filesystems (partial scan)
+
+
+
+

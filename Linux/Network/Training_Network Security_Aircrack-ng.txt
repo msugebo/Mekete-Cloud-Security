@@ -1,0 +1,9 @@
+======== Aircrack-ng ============
+
+$aircrack.ng wep.pcap (to get the key)
+
+
+Wireshark
+	Open the pcap file
+	go to Preferences>>Protocols>>IEEE 802.11>> Edit >> + >> wep >> key
+

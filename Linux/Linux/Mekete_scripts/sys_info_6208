@@ -1,0 +1,11 @@
+#!/bin/bash
+
+filefolders=sudo cat /etc/{shadow,passwd} | awk -F":" '{print $6}'
+
+
+for folder in ${filefolders[@]}
+do
+
+echo "IS THIS THE FOLDER" $folder
+
+done

@@ -1,0 +1,137 @@
+ =========== Log File Size ================
+ 
+  ========= Logrotate ========
+  
+sysadmin@UbuntuDesktop:/etc/logrotate.d$ ls
+alternatives  apache2  apport  apt  aptitude  cups-daemon  dpkg  nginx  ppp  rsyslog  samba  speech-dispatcher  ufw  unattended-upgrades  vsftpd
+
+sysadmin@UbuntuDesktop:/etc/logrotate.d$ cd
+
+sysadmin@UbuntuDesktop:~$ sudo apt install logrotate
+[sudo] password for sysadmin: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+logrotate is already the newest version (3.11.0-0.1ubuntu1).
+logrotate set to manually installed.
+The following packages were automatically installed and are no longer required:
+  fonts-liberation2 fonts-opensymbol gir1.2-dbusmenu-glib-0.4 gir1.2-dee-1.0 gir1.2-geocodeglib-1.0 gir1.2-gst-plugins-base-1.0 gir1.2-gstreamer-1.0 gir1.2-gudev-1.0 gir1.2-udisks-2.0 gir1.2-unity-5.0
+  grilo-plugins-0.3-base gstreamer1.0-gtk3 libboost-date-time1.65.1 libboost-locale1.65.1 libcdr-0.1-1 libclucene-contribs1v5 libclucene-core1v5 libcmis-0.5-5v5 libcolamd2 libdazzle-1.0-0
+  libe-book-0.1-1 libedataserverui-1.2-2 libegl1-mesa libeot0 libepubgen-0.1-1 libetonyek-0.1-1 libevent-2.1-6 libexiv2-14 libfreerdp-client2-2 libfreerdp2-2 libgee-0.8-2 libgexiv2-2 libgom-1.0-0
+  libgpgmepp6 libgpod-common libgpod4 liblangtag-common liblangtag1 liblirc-client0 libmediaart-2.0-0 libmspub-0.1-1 libodfgen-0.1-1 libqqwing2v5 libraw16 librevenge-0.0-0 libsgutils2-2 libssh-4
+  libsuitesparseconfig5 libvncclient1 libwayland-egl1-mesa libwinpr2-2 libxmlsec1 libxmlsec1-nss lp-solve media-player-info python3-debconf python3-debian python3-mako python3-markupsafe syslinux
+  syslinux-common syslinux-legacy update-notifier-common usb-creator-common
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 32 not upgraded.
+sysadmin@UbuntuDesktop:~$ cat /etc/logrotate.conf 
+# see "man logrotate" for details
+# rotate log files weekly
+weekly
+
+# use the syslog group by default, since this is the owning group
+# of /var/log/syslog.
+su root syslog
+
+# keep 4 weeks worth of backlogs
+rotate 4
+
+# create new (empty) log files after rotating old ones
+create
+
+# uncomment this if you want your log files compressed
+#compress
+
+# packages drop log rotation information into this directory
+include /etc/logrotate.d
+
+# no packages own wtmp, or btmp -- we'll rotate them here
+/var/log/wtmp {
+    missingok
+    monthly
+    create 0664 root utmp
+    rotate 1
+}
+
+/var/log/btmp {
+    missingok
+    monthly
+    create 0660 root utmp
+    rotate 1
+}
+
+# system-specific logs may be configured here
+
+
+===========
+sysadmin@UbuntuDesktop:~$ ls -l /etc/logrotate.d/
+total 60
+-rw-r--r-- 1 root root 120 Nov  2  2017 alternatives
+-rw-r--r-- 1 root root 442 Jul 16  2019 apache2
+-rw-r--r-- 1 root root 126 Nov 20  2017 apport
+-rw-r--r-- 1 root root 173 Apr 20  2018 apt
+-rw-r--r-- 1 root root  79 Jan 16  2018 aptitude
+-rw-r--r-- 1 root root 181 Mar 27  2018 cups-daemon
+-rw-r--r-- 1 root root 112 Nov  2  2017 dpkg
+-rw-r--r-- 1 root root 329 Apr  5  2018 nginx
+-rw-r--r-- 1 root root  94 Feb 26  2018 ppp
+-rw-r--r-- 1 root root 501 Jan 14  2018 rsyslog
+-rw-r--r-- 1 root root 819 Mar 29  2019 samba
+-rw-r--r-- 1 root root 533 Dec 15  2017 speech-dispatcher
+-rw-r--r-- 1 root root 178 Aug 15  2017 ufw
+-rw-r--r-- 1 root root 235 Apr 29  2019 unattended-upgrades
+-rw-r--r-- 1 root root 126 May  7  2014 vsftpd
+sysadmin@UbuntuDesktop:~$ cd /etc/logrotate.d/
+sysadmin@UbuntuDesktop:/etc/logrotate.d$ ls
+alternatives  apache2  apport  apt  aptitude  cups-daemon  dpkg  nginx  ppp  rsyslog  samba  speech-dispatcher  ufw  unattended-upgrades  vsftpd
+sysadmin@UbuntuDesktop:/etc/logrotate.d$ pwd
+/etc/logrotate.d
+sysadmin@UbuntuDesktop:/etc/logrotate.d$ sudo nano mail
+
+=====
+/var/log/mail.log {
+   rotate 56 
+   daily
+   notifempty
+   endscript
+}
+
+
+/var/log/mail.log {
+   rotate 56 (8 weeks(8*7 days))
+   daily
+   notifempty
+   endscript
+}
+
+=====
+
+
+
+sysadmin@UbuntuDesktop:/etc/logrotate.d$ ls -lah
+total 80K
+drwxr-xr-x   2 root root 4.0K Apr 17 13:18 .
+drwxr-xr-x 145 root root  12K Apr 17 12:41 ..
+-rw-r--r--   1 root root  120 Nov  2  2017 alternatives
+-rw-r--r--   1 root root  442 Jul 16  2019 apache2
+-rw-r--r--   1 root root  126 Nov 20  2017 apport
+-rw-r--r--   1 root root  173 Apr 20  2018 apt
+-rw-r--r--   1 root root   79 Jan 16  2018 aptitude
+-rw-r--r--   1 root root  181 Mar 27  2018 cups-daemon
+-rw-r--r--   1 root root  112 Nov  2  2017 dpkg
+-rw-r--r--   1 root root   72 Apr 17 13:18 mail
+-rw-r--r--   1 root root  329 Apr  5  2018 nginx
+-rw-r--r--   1 root root   94 Feb 26  2018 ppp
+-rw-r--r--   1 root root  501 Jan 14  2018 rsyslog
+-rw-r--r--   1 root root  819 Mar 29  2019 samba
+-rw-r--r--   1 root root  533 Dec 15  2017 speech-dispatcher
+-rw-r--r--   1 root root  178 Aug 15  2017 ufw
+-rw-r--r--   1 root root  235 Apr 29  2019 unattended-upgrades
+-rw-r--r--   1 root root  126 May  7  2014 vsftpd
+
+
+===== run rotate.d =============
+
+sysadmin@UbuntuDesktop:/etc/logrotate.d$ sudo logrotate -vf /etc/logrotate.conf
+
+
+

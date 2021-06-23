@@ -1,0 +1,110 @@
+===== PowerShell ==========
+
+PS C:\Users\suabsub.SUABServ> dir C:\Windows\symbols\ -Recurse | Measure-Object -Sum Length
+
+Count    : 1
+Average  :
+Sum      : 11776
+Maximum  :
+Minimum  :
+Property : Length
+
+
+	=== retrieve only objects containing the word “system”
+PS C:\Users\suabsub.SUABServ> ls C:\Windows\ | Where-Object {$_.Name -like "*system*"}
+
+    Directory: C:\Windows
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         12/7/2019   2:14 AM                System
+d-----         4/28/2021   1:04 PM                System32
+d-----         12/7/2019   2:54 AM                SystemApps
+d-----         4/16/2021   6:38 AM                SystemResources
+-a----         7/16/2016   5:45 AM            219 system.ini
+
+
+
+PS C:\> mkdir Backups                                                                                                                 
+
+    Directory: C:\
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        4/29/2021   1:03 AM                Backups
+
+
+PS C:\> mkdir Scripts                                                                                                                 
+
+    Directory: C:\
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        4/29/2021   1:03 AM                Scripts
+
+
+PS C:\> dir                                                                                                                           
+
+    Directory: C:\
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        4/29/2021   1:03 AM                Backups
+d-----        9/22/2020   6:31 PM                HashiCorp
+
+
+PS C:\> mkdir Logs                                                                                                                    
+
+    Directory: C:\
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        4/29/2021   1:03 AM                Logs
+
+
+PS C:\Users\Alex\Desktop> New-Item -Path "C:\" -Name "Logs" -ItemType "Directory" -Force    
+
+PS C:\> Set-Location c:                                                                                                               PS C:\> Set-Location C:\Users\Alex\Desktop\                                                                                           PS C:\Users\Alex\Desktop> ls                                                                                                          
+
+    Directory: C:\Users\Alex\Desktop
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        9/22/2020   6:26 PM                contracts
+d-----        9/22/2020   6:26 PM                reports
+
+
+PS C:\Users\Alex\Desktop> Move-Item .\reports\ c:\                                                                                    PS C:\Users\Alex\Desktop> Get-ChildItem c:\                                                                                           
+
+    Directory: C:\
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        4/29/2021   1:03 AM                Backups
+d-----        9/22/2020   6:31 PM                HashiCorp
+
+
+=======Create multiple folders =========
+PS C:\Users\Alex\Desktop> New-Item -Path "c:\" -Type "directory" "Backups", "Scripts" -force  
+
+========= Capitalization ===
+
+PS C:\> Rename-Item .\contracts\ Contra     
+PS C:\>Rename-Item .\Contra\ Contracts 
+
+
+============= Manage Processes in PowerShell =========
+
+
+	== Start cmd ===
+PS C:\Users\Alex\Desktop> Start-Process -FilePath cmd -verb RunAs  
+
+    === Stop cmd ===
+
+PS C:\Users\Alex\Desktop> Stop-Process -Name cmd  

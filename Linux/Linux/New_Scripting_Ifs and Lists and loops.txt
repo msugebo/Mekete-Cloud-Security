@@ -1,0 +1,68 @@
+
+========== if =========
+
+  if [5 -gt 8]
+  then
+     echo "This doesn't make sense!"
+  fi
+  
+  
+  if [5 -gt 4]
+  then
+	 echo "Make sense"
+  else
+     echo "This doesn't make sense!"
+  fi
+  
+  ==== && ======== and ============
+  
+  if [] && []
+  then
+	echo "Thattt"
+  else
+	echo ""
+  fi
+  
+
+==== || ===== or ===============
+	
+	
+	if [] || []
+	then
+		echo ""
+	else
+		echo ""
+	fi
+	
+	======== Lists =========
+
+
+sysadmin@UbuntuDesktop:~$ my_list=(a b c d e f)
+sysadmin@UbuntuDesktop:~$ echo ${my_list[0]}
+a
+sysadmin@UbuntuDesktop:~$ echo ${my_list[4]}
+e
+sysadmin@UbuntuDesktop:~$ echo ${my_list[@]}
+a b c d e f
+
+
+sysadmin@UbuntuDesktop:~$ my_list=('mon' 'tue' 'wed' 'thu' 'fri' 'sat' 'sun')
+sysadmin@UbuntuDesktop:~$ echo ${my_list[1]}
+tue
+sysadmin@UbuntuDesktop:~$ echo ${my_list[3]}
+thu
+sysadmin@UbuntuDesktop:~$ echo ${my_list[0]}
+mon
+sysadmin@UbuntuDesktop:~$ echo ${my_list[@]}
+mon tue wed thu fri sat sun
+
+
+========= comand expansion list ====
+sysadmin@UbuntuDesktop:~$ echo $(ls)
+2 aha.sh backups Cybersecurity-Lesson-Plans Desktop Documents Downloads home home.tar Mekete_scripts Mekete_scripts.tar Music output output.txt Pictures Priority_High.txt Projects Public python reasearch3 research research2 research4 Security_scripts system.sh Templates --verify Videos
+
+
+==== Brace expansion =========
+
+
+	

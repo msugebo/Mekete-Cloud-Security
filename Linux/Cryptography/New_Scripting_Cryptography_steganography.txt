@@ -1,0 +1,112 @@
+ ============== Cryptography ============
+ ========= steganography ==========
+
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ ls
+family.jpg  hiden.txt
+
+========= Hide =============
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ steghide embed -cf family.jpg -ef hiden.txt
+Enter passphrase: 
+Re-Enter passphrase: 
+embedding "hiden.txt" in "family.jpg"... done
+
+
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ ls -lah
+total 40K
+drwxrwxr-x 2 sysadmin sysadmin 4.0K May 22 11:16 .
+drwxrwxr-x 5 sysadmin sysadmin 4.0K May 22 11:16 ..
+-rw-rw-rw- 1 sysadmin sysadmin  28K May 22 11:19 family.jpg
+-rw-rw-r-- 1 sysadmin sysadmin   30 May 22 11:15 hiden.txt
+
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ eog family.jpg 
+
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ rm hiden.txt 
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ ls -lah
+total 36K
+drwxrwxr-x 2 sysadmin sysadmin 4.0K May 22 11:22 .
+drwxrwxr-x 5 sysadmin sysadmin 4.0K May 22 11:16 ..
+-rw-rw-rw- 1 sysadmin sysadmin  28K May 22 11:19 family.jpg
+
+
+========= Extract 1 ================
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ steghide extract -sf family.jpg 
+Enter passphrase: 
+wrote extracted data to "hiden.txt".
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ ls -lah
+total 40K
+drwxrwxr-x 2 sysadmin sysadmin 4.0K May 22 11:23 .
+drwxrwxr-x 5 sysadmin sysadmin 4.0K May 22 11:16 ..
+-rw-rw-rw- 1 sysadmin sysadmin  28K May 22 11:19 family.jpg
+-rw-rw-r-- 1 sysadmin sysadmin   30 May 22 11:23 hiden.txt
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ cat hiden.txt 
+Pick me up at the right place
+
+
+
+============== Extract 2 ================
+
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ mv /home/sysadmin/Downloads/mydreamcar.jpg ./
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ ls
+family.jpg  hiden_com.txt  mydreamcar.jpg
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ mkdir family
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ mv family.jpg hiden_com.txt family
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ ls
+family  mydreamcar.jpg
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ mkdir mydreamcar
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ mv mydreamcar.jpg mydreamcar
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ cd mydreamcar/
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography/mydreamcar$ steghide extract -sf mydreamcar.jpg 
+Enter passphrase: 
+steghide: could not extract any data with that passphrase!
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography/mydreamcar$ steghide extract -sf mydreamcar.jpg 
+Enter passphrase: 
+wrote extracted data to "list_of_targets.txt".
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography/mydreamcar$ cat list_of_targets.txt 
+List of Homes to Break into
+
+Doctor Brown House - Done
+Mayor Wilson's House - Done
+Mrs Peaboday's House - Done
+Captain Stricklands house - Next
+
+
+============ Compromise the hidden file ========
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ ls -lah
+total 40K
+drwxrwxr-x 2 sysadmin sysadmin 4.0K May 22 11:23 .
+drwxrwxr-x 5 sysadmin sysadmin 4.0K May 22 11:16 ..
+-rw-rw-rw- 1 sysadmin sysadmin  28K May 22 11:19 family.jpg
+-rw-rw-r-- 1 sysadmin sysadmin   30 May 22 11:23 hiden.txt
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ steghide embed -cf family.jpg -ef hiden.txt
+Enter passphrase: 
+Re-Enter passphrase: 
+embedding "hiden.txt" in "family.jpg"... done
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ echo "I am compromising the hiden file" > hiden_com.txt
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ steghide embed -cf family.jpg -ef hiden_com.txt 
+Enter passphrase: 
+Re-Enter passphrase: 
+embedding "hiden_com.txt" in "family.jpg"... done
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ ls -lah
+total 44K
+drwxrwxr-x 2 sysadmin sysadmin 4.0K May 22 11:30 .
+drwxrwxr-x 5 sysadmin sysadmin 4.0K May 22 11:16 ..
+-rw-rw-rw- 1 sysadmin sysadmin  28K May 22 11:30 family.jpg
+-rw-rw-r-- 1 sysadmin sysadmin   33 May 22 11:30 hiden_com.txt
+-rw-rw-r-- 1 sysadmin sysadmin   30 May 22 11:23 hiden.txt
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ rm hid*
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ ls -lah
+total 36K
+drwxrwxr-x 2 sysadmin sysadmin 4.0K May 22 11:31 .
+drwxrwxr-x 5 sysadmin sysadmin 4.0K May 22 11:16 ..
+-rw-rw-rw- 1 sysadmin sysadmin  28K May 22 11:30 family.jpg
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ steghide extract -sf family.jpg 
+Enter passphrase: 
+steghide: could not extract any data with that passphrase!
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ steghide extract -sf family.jpg 
+Enter passphrase: 
+wrote extracted data to "hiden_com.txt".
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ cat hiden_com.txt 
+I am compromising the hiden file
+sysadmin@UbuntuDesktop:~/Mekete_scripts/steganography$ 
+
+

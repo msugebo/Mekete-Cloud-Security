@@ -1,0 +1,44 @@
+
+
+ ==== alias ====
+ 
+	sysadmin@UbuntuDesktop:~$ alias lh="ls -lah"
+	sysadmin@UbuntuDesktop:~$ lh
+
+sysadmin@UbuntuDesktop:~$ alias (to see list of alias)
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias l='ls -CF'
+alias la='ls -A'
+alias lh='ls -lah'
+alias ll='ls -alF'
+alias ls='ls --color=auto'
+sysadmin@UbuntuDesktop:~$ unalias ls (delete alias named ls)
+sysadmin@UbuntuDesktop:~$ alias (verify the delete)
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias l='ls -CF'
+alias la='ls -A'
+alias lh='ls -lah'
+alias ll='ls -alF'
+
+
+===== adding alias to rc
+
+sysadmin@UbuntuDesktop:~$ cp .bashrc .bashrc_copy (backup rc)
+sysadmin@UbuntuDesktop:~$ nano .bashrc (edit and add custome alias)
+sysadmin@UbuntuDesktop:~$ source .bashrc (reload rc with the new alias)
+sysadmin@UbuntuDesktop:~$ la (run the custom lh command)
+
+
+==== manually add commands with echo ====
+
+sysadmin@UbuntuDesktop:~$ echo "##Custome Scripts" >> ~/.bashrc && echo "alias rr='source ~./bashrc'" >> ~/.bashrc && source ~/.bashrc
+
+
+
+

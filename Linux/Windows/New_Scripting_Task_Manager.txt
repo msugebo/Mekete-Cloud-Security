@@ -1,0 +1,5 @@
+========== Windows Task Manager =========
+
+---- Stop process
+
+---- Disable Startup

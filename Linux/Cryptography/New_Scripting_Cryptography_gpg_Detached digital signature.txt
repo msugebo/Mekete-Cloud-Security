@@ -1,0 +1,121 @@
+============= Cryptography =================
+========= Ditached digital signature ============
+
+sysadmin@UbuntuDesktop:~$ gpg --gen-key
+gpg (GnuPG) 2.2.4; Copyright (C) 2017 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Note: Use "gpg --full-generate-key" for a full featured key generation dialog.
+
+GnuPG needs to construct a user ID to identify your key.
+
+Real name: Tim Doe
+Email address: tim@email.com
+You selected this USER-ID:
+    "Tim Doe <tim@email.com>"
+
+Change (N)ame, (E)mail, or (O)kay/(Q)uit? O
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+gpg: key 30FBBF9C3D6B5EE7 marked as ultimately trusted
+gpg: revocation certificate stored as '/home/sysadmin/.gnupg/openpgp-revocs.d/B1269AE6E084C7A40623BE8D30FBBF9C3D6B5EE7.rev'
+public and secret key created and signed.
+
+pub   rsa3072 2021-05-20 [SC] [expires: 2023-05-20]
+      B1269AE6E084C7A40623BE8D30FBBF9C3D6B5EE7
+uid                      Tim Doe <tim@email.com>
+sub   rsa3072 2021-05-20 [E] [expires: 2023-05-20]
+
+sysadmin@UbuntuDesktop:~$ gpg --armor --output tim.gpg --export tim@email.com 
+sysadmin@UbuntuDesktop:~$ echo " Transfer $500 to the account I provided you" > Tims_message.txt
+
+
+sysadmin@UbuntuDesktop:~$ gpg --output Tims_sig --armor --detached-sig Tims_message.txt 
+gpg: invalid option "--detached-sig"
+sysadmin@UbuntuDesktop:~$ gpg --output Tims_sig --armor --detach-sig Tims_message.txt 
+===
+sysadmin@UbuntuDesktop:~$ cat Tims_sig 
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAABCgAdFiEECiPzMwXds4wRuEZXqTmzlgG0TSAFAmCl1EgACgkQqTmzlgG0
+TSBlhgwAoSjC/3/M7IQoryD2W4QRM+V16SXCMDo1mG2qyhPRIPMPOP9peSEnP5oK
+N0NE3mj6x1UkcS+D105Bi8vcrY9QgvXz9bThagtsvjX41s9Rar/la8Pw4DkLNLFd
+lYdsF/zhT2DxMYMVl+EgLa377ZjRRlyIHl7IuFVuoOP0+M6RsNtj94DrSD0sINH3
+CIR+layccKT1eJ4OV/8DK8cisijsQg0D61mED8B/Jylu5Ss4kRRYdBZT28uxVkJp
+hg3zLH7KRkEZvB3lefa+9SUoMCfZLG0s/L/zvMirZ3Gf6FZ+jEoPDVLIAFZs7Gfi
+uBL/AfQin+hVB1nXk2E1IPrVUQqwP7hlf/oUESGfKTCUCwHpb41EWOrvGA7ByAVY
+k+95NqhSKXcx7w+GnVHhv2YlU9Mvk0PeqPTrE9+/wTkPCj6UcTf/S7cM74mmMLuB
+ZSf9XyDTIBHH1uIvSdwsI8pLE3ZwnDjwdJLNC/ZDv1/to0buLnfs9Q4w0l/wWuPq
+42Pn26FZ
+=TjHW
+-----END PGP SIGNATURE-----
+
+
+sysadmin@UbuntuDesktop:~$ cp tim.gpg /tmp
+sysadmin@UbuntuDesktop:~$ cp Tims_message.txt  /tmp
+sysadmin@UbuntuDesktop:~$ cp Tims_sig /tmp
+
+------------- switch user
+
+sadmin@UbuntuDesktop:~$ cp /tmp/Tims_message.txt ~/
+sysadmin@UbuntuDesktop:~$ cp /tmp/Tims_sig ~/
+sysadmin@UbuntuDesktop:~$ cp /tmp/tim.gpg ~/
+sysadmin@UbuntuDesktop:~$ gpg --import tim.gpg 
+gpg: key 30FBBF9C3D6B5EE7: "Tim Doe <tim@email.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+sysadmin@UbuntuDesktop:~$ gpg --verify Tims_sig Tims_message.txt 
+gpg: Signature made Wed 19 May 2021 09:15:20 PM MDT
+gpg:                using RSA key 0A23F33305DDB38C11B84657A939B39601B44D20
+gpg: Good signature from "Julie <julie@email.com>" [ultimate]
+sysadmin@UbuntuDesktop:~$ echo "Transfer #34,000 to the account I gave you" > Tims_message.txt
+sysadmin@UbuntuDesktop:~$ gpg --verify Tims_sig Tims_message.txt 
+gpg: Signature made Wed 19 May 2021 09:15:20 PM MDT
+gpg:                using RSA key 0A23F33305DDB38C11B84657A939B39601B44D20
+gpg: BAD signature from "Julie <julie@email.com>" [ultimate]
+
+
+
+=============== New message =============
+
+sysadmin@UbuntuDesktop:~/home/sysadmin/Stricklands_messages$ ls
+message1.sig  message2.sig  message3.sig  strickland_publickey.gpg
+
+sysadmin@UbuntuDesktop:~/home/sysadmin/Stricklands_messages$ gpg --import strickland_publickey.gpg 
+gpg: key 99DDD0570ABED677: public key "strickland <strickland@hillvalleypd.com>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+sysadmin@UbuntuDesktop:~/home/sysadmin/Stricklands_messages$ gpg --verify message1.sig 
+gpg: Signature made Mon 25 Nov 2019 12:17:27 PM MST
+gpg:                using RSA key 4C0E98AC34FF09005EF0451899DDD0570ABED677
+
+
+gpg: Good signature from "strickland <strickland@hillvalleypd.com>" [unknown]
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 4C0E 98AC 34FF 0900 5EF0  4518 99DD D057 0ABE D677
+
+
+sysadmin@UbuntuDesktop:~/home/sysadmin/Stricklands_messages$ gpg --verify message2.sig 
+gpg: Signature made Mon 25 Nov 2019 12:17:42 PM MST
+gpg:                using RSA key 4C0E98AC34FF09005EF0451899DDD0570ABED677
+gpg: Good signature from "strickland <strickland@hillvalleypd.com>" [unknown]
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 4C0E 98AC 34FF 0900 5EF0  4518 99DD D057 0ABE D677
+
+
+sysadmin@UbuntuDesktop:~/home/sysadmin/Stricklands_messages$ gpg --verify message3.sig 
+gpg: CRC error; E606B8 - 74217B
+gpg: no signature found
+gpg: the signature could not be verified.
+Please remember that the signature file (.sig or .asc)
+should be the first file given on the command line.
+sysadmin@UbuntuDesktop:~/home/sysadmin/Stricklands_mes

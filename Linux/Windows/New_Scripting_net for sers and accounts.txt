@@ -1,0 +1,147 @@
+===== net ==========
+
+=== net users ======
+	
+=== net localgroup =======
+
+==== net accounts =====
+
+
+=========== examples ==========
+C:\Users\azadmin\Desktop\reports>net user
+
+User accounts for \\ML-RefVm-244323
+
+-------------------------------------------------------------------------------
+Alex                     azadmin                  DefaultAccount
+Guest                    WDAGUtilityAccount
+The command completed successfully.
+
+
+C:\Users\azadmin\Desktop\reports>net user azadmin
+User name                    azadmin
+Full Name
+Comment                      Built-in account for administering the computer/domain
+User's comment
+Country/region code          000 (System Default)
+Account active               Yes
+Account expires              Never
+
+Password last set            4/13/2021 10:03:30 PM
+Password expires             Never
+Password changeable          4/13/2021 10:03:30 PM
+Password required            Yes
+User may change password     Yes
+
+Workstations allowed         All
+Logon script
+User profile
+Home directory
+Last logon                   4/27/2021 12:42:48 AM
+
+Logon hours allowed          All
+
+Local Group Memberships      *Administrators
+Global Group memberships     *None
+The command completed successfully.
+
+
+C:\Users\azadmin\Desktop\reports>net localgroup
+
+Aliases for \\ML-RefVm-244323
+
+-------------------------------------------------------------------------------
+*Access Control Assistance Operators
+*Administrators
+*Backup Operators
+*Cryptographic Operators
+*Device Owners
+*Distributed COM Users
+*Event Log Readers
+*Guests
+*Hyper-V Administrators
+*IIS_IUSRS
+*Network Configuration Operators
+*Performance Log Users
+*Performance Monitor Users
+*Power Users
+*Remote Desktop Users
+*Remote Management Users
+*Replicator
+*System Managed Accounts Group
+*Users
+The command completed successfully.
+
+
+C:\Users\azadmin\Desktop\reports>net accounts
+Force user logoff how long after time expires?:       Never
+Minimum password age (days):                          0
+Maximum password age (days):                          42
+Minimum password length:                              0
+Length of password history maintained:                None
+Lockout threshold:                                    Never
+Lockout duration (minutes):                           30
+Lockout observation window (minutes):                 30
+Computer role:                                        WORKSTATION
+The command completed successfully.
+
+
+
+============ user maintenance ===========
+
+Microsoft Windows [Version 10.0.18363.1316]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\azadmin>net user Bob Ilovesales123! /add
+The command completed successfully.
+
+
+C:\Users\azadmin>net user Bob Ilovesales123! /add
+
+C:\Users\azadmin>net user Andrew Ilovedevelopment123! /add
+The password entered is longer than 14 characters.  Computers
+with Windows prior to Windows 2000 will not be able to use
+this account. Do you want to continue this operation? (Y/N) [Y]: Y
+The command completed successfully.
+
+
+C:\Users\azadmin>net localgroup Administrators Andrew /add
+The command completed successfully.
+
+
+C:\Users\azadmin>net user Andrew
+User name                    Andrew
+Full Name
+Comment
+User's comment
+Country/region code          000 (System Default)
+Account active               Yes
+Account expires              Never
+
+Password last set            4/27/2021 3:13:22 AM
+Password expires             6/8/2021 3:13:22 AM
+Password changeable          4/27/2021 3:13:22 AM
+Password required            Yes
+User may change password     Yes
+
+Workstations allowed         All
+Logon script
+User profile
+Home directory
+Last logon                   Never
+
+Logon hours allowed          All
+
+Local Group Memberships      *Administrators       *Users
+Global Group memberships     *None
+The command completed successfully.
+
+============ Group Plicy ========
+
+Launch `gpedit` and set the following password policies for the entire Windows machine:
+			=== Examples for gpedit ====
+    - Maximum password age is 90 days.
+
+    - Minimum password length is 12 characters.
+
+    - Password complexity requirements are enabled.

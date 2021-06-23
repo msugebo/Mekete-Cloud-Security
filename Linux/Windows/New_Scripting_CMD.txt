@@ -1,0 +1,179 @@
+========== CMD =======
+
+cd -- to view the current directory
+
+cd .. go to one back directory
+
+rm -s -- remove non empty directory
+
+find -- to search and case sensitive
+
+help -- same as man in linux (eg. help cd)
+
+C:\Users\azadmin\Desktop>cd Audit
+
+C:\Users\azadmin\Desktop\Audit>cd
+C:\Users\azadmin\Desktop\Audit
+
+C:\Users\azadmin\Desktop\Audit>echo hello > todo.txt
+
+C:\Users\azadmin\Desktop\Audit>echo hello
+hello
+
+
+========= Example 1 =======
+C:\Users\azadmin\Desktop\Audit>cd
+C:\Users\azadmin\Desktop\Audit
+C:\Users\azadmin\Desktop\Audit>dir
+ Volume in drive C is Windows
+ Volume Serial Number is 2CA8-EF5F
+
+ Directory of C:\Users\azadmin\Desktop\Audit
+
+04/27/2021  01:12 AM    <DIR>          .
+04/27/2021  01:12 AM    <DIR>          ..
+04/27/2021  01:12 AM                 8 todo.txt
+               1 File(s)              8 bytes
+               2 Dir(s)  39,255,011,328 bytes free
+
+C:\Users\azadmin\Desktop\Audit>echo Review task > todo.txt
+
+C:\Users\azadmin\Desktop\Audit>type todo.txt
+Review task
+
+C:\Users\azadmin\Desktop\Audit>echo 1. Check for CPU-Intensive Processes >> todo.txt
+
+C:\Users\azadmin\Desktop\Audit>echo 2. Disable Unncessary startups >> todo.txt
+
+C:\Users\azadmin\Desktop\Audit>type todo.txt
+Review task
+1. Check for CPU-Intensive Processes
+2. Disable Unncessary startups
+
+C:\Users\azadmin\Desktop\Audit>
+
+====== Example 2 =========
+
+
+C:\Users\azadmin\Desktop\reports>type report.txt
+Badelining Report
+Created by Mekete
+The current date is: Tue 04/27/2021
+Enter the new date: (mm-dd-yy) "Operating System is Windows_NT"
+Operating System is Windows_NT
+
+C:\Users\azadmin\Desktop\reports>edit report.txt
+'edit' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\azadmin\Desktop\reports>notepad report.txt
+
+C:\Users\azadmin\Desktop\reports>echo Operating System is %OS% >> report.txt
+
+C:\Users\azadmin\Desktop\reports>type report.txt
+Badelining Report
+Created by Mekete
+Operating System is Windows_NT
+
+C:\Users\azadmin\Desktop\reports>echo %DATE% >> report.txt
+
+C:\Users\azadmin\Desktop\reports>type report.txt
+Badelining Report
+Created by Mekete
+Operating System is Windows_NT
+Tue 04/27/2021
+
+C:\Users\azadmin\Desktop\reports>echo %USERPROFILE% >> report.txt
+
+C:\Users\azadmin\Desktop\reports>type report.txt
+Badelining Report
+Created by Mekete
+Operating System is Windows_NT
+Tue 04/27/2021
+C:\Users\azadmin
+
+C:\Users\azadmin\Desktop\reports>echo %OS% system report created on %DATE% with logged in user, %USERNAME% >> report.txt
+
+C:\Users\azadmin\Desktop\reports>type report.txt
+Badelining Report
+Created by Mekete
+Operating System is Windows_NT
+Tue 04/27/2021
+C:\Users\azadmin
+Windows_NT system report created on Tue 04/27/2021 with logged in user, azadmin
+
+C:\Users\azadmin\Desktop\reports> dir "%ProgramFiles%" >> report.txt
+
+C:\Users\azadmin\Desktop\reports> dir "%ProgramFiles(x86)%" >> report.txt
+
+C:\Users\azadmin\Desktop\reports>type report.txt
+Badelining Report
+Created by Mekete
+Operating System is Windows_NT
+Tue 04/27/2021
+C:\Users\azadmin
+Windows_NT system report created on Tue 04/27/2021 with logged in user, azadmin
+ Volume in drive C is Windows
+ Volume Serial Number is 2CA8-EF5F
+
+ Directory of C:\Program Files
+
+02/04/2021  07:42 PM    <DIR>          .
+02/04/2021  07:42 PM    <DIR>          ..
+09/22/2020  07:56 PM    <DIR>          7-Zip
+09/22/2020  08:00 PM    <DIR>          Bonjour
+09/22/2020  08:00 PM    <DIR>          Common Files
+09/22/2020  06:29 PM    <DIR>          Git
+04/19/2021  06:34 PM    <DIR>          Hyper-V
+09/07/2020  08:18 AM    <DIR>          Internet Explorer
+09/22/2020  08:00 PM    <DIR>          iPod
+09/22/2020  08:00 PM    <DIR>          iTunes
+09/22/2020  05:20 AM    <DIR>          Microsoft CLR Instrumentation Engine
+02/04/2021  07:42 PM    <DIR>          Microsoft Update Health Tools
+09/22/2020  06:28 PM    <DIR>          Microsoft VS Code
+03/19/2019  04:52 AM    <DIR>          ModifiableWindowsApps
+09/22/2020  07:59 PM    <DIR>          Slack
+09/22/2020  08:55 PM    <DIR>          UNP
+09/22/2020  08:01 PM    <DIR>          VideoLAN
+04/19/2021  06:34 PM    <DIR>          Windows Defender
+04/19/2021  06:34 PM    <DIR>          Windows Defender Advanced Threat Protection
+09/07/2020  08:18 AM    <DIR>          Windows Mail
+04/19/2021  06:34 PM    <DIR>          Windows Media Player
+03/19/2019  06:22 AM    <DIR>          Windows Multimedia Platform
+03/19/2019  05:02 AM    <DIR>          Windows NT
+04/19/2021  06:34 PM    <DIR>          Windows Photo Viewer
+03/19/2019  06:22 AM    <DIR>          Windows Portable Devices
+03/19/2019  04:52 AM    <DIR>          Windows Security
+03/19/2019  04:52 AM    <DIR>          WindowsPowerShell
+09/22/2020  07:56 PM    <DIR>          Wireshark
+               0 File(s)              0 bytes
+              28 Dir(s)  39,281,680,384 bytes free
+ Volume in drive C is Windows
+ Volume Serial Number is 2CA8-EF5F
+
+ Directory of C:\Program Files (x86)
+
+09/22/2020  08:30 PM    <DIR>          .
+09/22/2020  08:30 PM    <DIR>          ..
+09/22/2020  07:57 PM    <DIR>          Adobe
+09/22/2020  08:00 PM    <DIR>          Bonjour
+09/22/2020  08:00 PM    <DIR>          Common Files
+09/07/2020  08:18 AM    <DIR>          Internet Explorer
+09/22/2020  08:01 PM    <DIR>          Microsoft
+09/22/2020  05:20 AM    <DIR>          Microsoft CLR Instrumentation Engine
+03/19/2019  04:52 AM    <DIR>          Microsoft.NET
+09/22/2020  08:01 PM    <DIR>          Mumble
+09/22/2020  08:30 PM    <DIR>          TeamViewer
+09/22/2020  08:03 PM    <DIR>          Ubisoft
+04/19/2021  06:34 PM    <DIR>          Windows Defender
+09/07/2020  08:18 AM    <DIR>          Windows Mail
+04/19/2021  06:34 PM    <DIR>          Windows Media Player
+03/19/2019  06:22 AM    <DIR>          Windows Multimedia Platform
+03/19/2019  05:02 AM    <DIR>          Windows NT
+04/19/2021  06:34 PM    <DIR>          Windows Photo Viewer
+03/19/2019  06:22 AM    <DIR>          Windows Portable Devices
+03/19/2019  04:52 AM    <DIR>          WindowsPowerShell
+               0 File(s)              0 bytes
+              20 Dir(s)  39,271,456,768 bytes free
+
+C:\Users\azadmin\Desktop\reports>

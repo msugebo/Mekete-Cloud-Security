@@ -1,0 +1,24 @@
+============== Wireshark - DHCP ============
+
+Discover
+Offer
+Request
+Deny
+Acknowledge
+
+
+dhcp.option.dhcp == 1 (Discover)
+dhcp.option.dhcp == 2 (offer)
+dhcp.option.dhcp == 3 (request)
+dhcp.option.dhcp == 4 (Deny)
+dhcp.option.dhcp == 5 (Acknowledge)
+
+
+Attacks
+- DHCP Starvation
+- DHCP Spooting
+
+
+tcp.flags == 0x012 || tcp.flags == 0x012 
+
+

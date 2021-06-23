@@ -1,0 +1,40 @@
+============= Wireshark ============
+
+http.request.method=="GET"
+
+
+http.request.method=="POST"
+
+
+http.request.method == "GET" && http contains "php?"
+http && frame contains "pho HTTP"
+
+arp
+
+ping pepsi.com
+
+
+ping -g (range of ips)
+
+ping -c 4 pepsi.com
+
+===== Traceroute / Tracerte
+
+traceroute -I pepsi.com
+nslookup pepsi.com
+
+=== tcp packet  SYN Scan
+
+tcp.flags.syn == 1 && tcp.flags.ack==1 (Open ports)
+
+tcp.flags.syn == 1 && tcp.flags.ack==1 && tcp.flags.fin ==0 (Filtered)
+
+tcp.flags.syn == 0 && tcp.flags.ack==1 && tcp.flags.fin == 1 (Closed)
+
+===== SYN Scan ====
+
+packates
+
+filtered 1
+open 2
+closed 3

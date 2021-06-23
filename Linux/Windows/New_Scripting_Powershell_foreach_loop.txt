@@ -1,0 +1,21 @@
+ ============= foreach Loops =============
+
+ gitbash nano/text editor
+
+ $csv=Import-CSV -Path .\chocodemo.csv
+
+foreach ($line in $CSV) {
+        write-Output $line
+        choco uninstall -y $line.name
+}
+
+
+save as. name.ps1
+
+
+== execute ====
+
+./name.ps1
+
+
+

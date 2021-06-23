@@ -1,0 +1,36 @@
+============= Cryptography =================
+========= Hashing ============
+
+== create md5
+
+sysadmin@UbuntuDesktop:~$ echo "I love my wife" > love.txt
+sysadmin@UbuntuDesktop:~$ md5sum love.txt  > lovehash.txt
+sysadmin@UbuntuDesktop:~$ cat love*
+f87c7378fef8b2492f4389dfa4eb1c4e  love.txt
+I love my wife
+
+
+============
+
+sysadmin@UbuntuDesktop:~$ echo "I love my wife" > love.txt
+sysadmin@UbuntuDesktop:~$ md5sum love.txt  > lovehash.txt
+sysadmin@UbuntuDesktop:~$ cat love*
+f87c7378fef8b2492f4389dfa4eb1c4e  love.txt
+I love my wife
+sysadmin@UbuntuDesktop:~$ echo "This is the love response > love.txt
+> ^C
+sysadmin@UbuntuDesktop:~$ echo "This is the love response" > love.txt
+sysadmin@UbuntuDesktop:~$ md5sum -c lovehash.txt > md5check.txt
+md5sum: WARNING: 1 computed checksum did NOT match
+sysadmin@UbuntuDesktop:~$ cat md5check.txt 
+love.txt: FAILED
+sysadmin@UbuntuDesktop:~$ sha256 love.txt > love256hash.txt
+
+Command 'sha256' not found, but can be installed with:
+
+sudo apt install hashalot
+
+sysadmin@UbuntuDesktop:~$ sha256sum love.txt > love256hash.txt
+sysadmin@UbuntuDesktop:~$ cat love256hash.txt 
+8bba597698ae3b74301a1a79c572125650c0e3c858750250d19533ac5ba3585e  love.txt
+

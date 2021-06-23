@@ -1,0 +1,5 @@
+========= Cryptography =======
+====Hashcat=======
+
+hashcat -m 0 -a 0 -o solved.txt hash.txt rockyou.txt --force
+

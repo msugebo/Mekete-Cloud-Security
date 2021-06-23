@@ -1,0 +1,437 @@
+##Go back to a specific directories
+cd ../../
+
+## multiple word search with or
+
+grep -i 'guavaberries\|optional' *
+
+
+## recursive search in sub directories
+
+grep -ir guavaberries * 
+grep -ir 'guavaberries\|optional' *
+
+## Find large Numbers
+grep -i txtt la
+
+## sed (stream editor)
+
+sed s/(old value)/(replacement value)/
+
+## awk - data extratction
+
+ awk -F, '{print $2}' awk.txt
+ awk -F" " '{print $2}' awk.txt
+ 
+ 
+ ===============
+ 
+ cd / - to go to root
+
+ cd ~/ - Home directory
+ 
+ less psswd - List of users
+ 
+ sudo less etc/shadow - list of password
+ 
+ cat user.hashes
+ 
+ root ! - cannot login from terminal
+ 
+ any user with * - a system processing
+
+every thing in linux is a file
+
+/bin - for all users
+
+/sbin - mostly used by the administrators. Need to use sudo
+
+
+ top - real time ps every 3 seconds
+ 
+ top -hv|-bcHiOSs -d secs -n max -u|U user -p pid -o fld -w
+ 
+ 
+ ---processes run
+ ps
+ ps -a - with a terminal - All processes
+ ps -aux
+ 
+ ps -x without a terminal
+ 
+ tty is terminal
+ 
+ shift <>
+ 
+ u - user
+ 
+ sudo kill 12332
+ sudo kill -u username
+ 
+ ======== Password Crack with John ==============
+ nano ctrl+k delete a line.
+ 
+ Password Crack John.
+ 
+ Example
+ sudo cp etc/shadow /home/sysadmin/shadow_copy
+ 
+ cd
+ 
+ sudo nano shadow_copy to remove unwanted users (ctrl + k)
+ sudo john shadow_copy
+  
+ sudo rm /root/.john/john.pot (to rerun john)
+ 
+ 
+ ============users and groups
+ 
+ whoami - to see me
+ 
+ id - to see my group
+ 
+ sudo su (Elivate priviledge)
+ 
+ sudo -l (to see the permissions)
+ 
+ sudo -lU username (to see someone else's permissions)
+ 
+ sudo usermod -aG sudo username (-a add G is Group sudo is the group)
+  
+  su - to switch user
+  
+  
+ sudo visudo (Use this to edit/add permisions) /etc/sudoers.tmp
+ DO NOT USE nano to edit permissions
+ apt option to allow install updates
+ 
+ Original ===================================
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# Please consider adding local content in /etc/sudoers.d/ instead of
+# directly modifying this file.
+#
+# See the man page for details on how to write a sudoers file.
+#
+Defaults        env_reset
+Defaults        mail_badpass
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+vagrant ALL=(ALL:ALL) NOPASSWD:ALL
+# Members of the admin group may gain root privileges
+%admin ALL=(ALL) ALL
+
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+
+# See sudoers(5) for more information on "#include" directives:
+
+#includedir /etc/sudoers.d
+max  ALL=(ALL:ALL) /usr/bin/less
+
+
+===================================
+
+===== Edited
+ #
+# This file MUST be edited with the 'visudo' command as root.
+#
+# Please consider adding local content in /etc/sudoers.d/ instead of
+# directly modifying this file.
+#
+# See the man page for details on how to write a sudoers file.
+#
+Defaults        env_reset
+Defaults        mail_badpass
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+vagrant ALL=(ALL:ALL) NOPASSWD:ALL
+# Members of the admin group may gain root privileges
+%admin ALL=(ALL) ALL
+
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+
+# See sudoers(5) for more information on "#include" directives:
+
+#includedir /etc/sudoers.d
+max  ALL=(ALL:ALL) /usr/bin/less
+john ALL=(ALL;ALL) /usr/bin/apt
+===============================================================
+
+
+sysadmin@UbuntuDesktop:~$ su max
+Password: 
+$ whoami
+max
+$ id
+uid=1006(max) gid=1008(max) groups=1008(max),1005(hax0rs)
+$ cd .. 
+$ cd max	
+$ ls
+Documents  Downloads  Pictures	Public	shopping_list.txt  Tools  Videos
+$ cd Documents
+$ ls
+str.sh
+$ my_file.txt str.shwe
+sh: 8: my_file.txt: not found
+$ touch my_file.txt
+$ ls
+my_file.txt  str.sh
+$ sudo less my_file.txt
+[sudo] password for max: 
+Sorry, try again.
+[sudo] password for max: 
+
+!bash
+
+root@UbuntuDesktop:~/Documents# whoami
+root
+root@UbuntuDesktop:~/Documents# 
+
+root@UbuntuDesktop:~/Documents# whoami
+root
+root@UbuntuDesktop:~/Documents# whoami
+root
+root@UbuntuDesktop:~/Documents# exit
+exit
+!done  (press RETURN)
+$ whoami
+max
+$ exit
+sysadmin@UbuntuDesktop:~$ whoami
+sysadmin
+sysadmin@UbuntuDesktop:~$ 
+
+exit
+exit
+exit
+
+
+============= users and groups =========================
+id willshow the group
+
+head /etc/passwd
+
+groups
+
+groups Get group info for the user mike.
+usermod Lock Mike’s account to prevent him from logging in.
+usermod Remove the user mike from the general group.
+deluser --remove-home Delete the user mike.
+delgroup Delete the general group.
+adduser Create the user joseph.
+addgroup Create a developer group.
+usermod Add the user joseph to the developer group.
+
+
+user modification example
+
+sudo usermod -L mike - lock user
+sudo usermod -L mike - lock from group
+sudo deluser --remove-home mike
+sudo gpasswd -d adam developers 
+
+user ownership example
+	== change owner
+sudo chown user file
+sudo :group file
+sudo user:group file
+
+check
+grep mike /etc/passwd
+grep general /etc/group
+sudo del group name
+
+
+=== File Permission
+sudo chmod u=rw,g=-,og=- etc/shadow (symbolic form)
+sudo chmod 600 etc/shadow (Ocatl form)
+
+
+
+==== Access Controls and Managing Services
+sysadmin@UbuntuDesktop:/$ cd ~/Documents/
+sysadmin@UbuntuDesktop:~/Documents$ pwd
+/home/sysadmin/Documents
+sysadmin@UbuntuDesktop:~/Documents$ whoami
+sysadmin
+sysadmin@UbuntuDesktop:~/Documents$ touch my_file
+sysadmin@UbuntuDesktop:~/Documents$ mkdir my_dir
+sysadmin@UbuntuDesktop:~/Documents$ ls
+docker_files  epscript  missingfiles  my_dir  my_file  setup_scripts  Trainig  web-vulns
+sysadmin@UbuntuDesktop:~/Documents$ ls -l
+total 28
+drwxr-xr-x 2 sysadmin sysadmin 4096 Feb  4 11:08 docker_files
+drwxr-xr-x 8 sysadmin sysadmin 4096 Feb  4 11:06 epscript
+drwxr-xr-x 2 sysadmin sysadmin 4096 Feb  4 11:06 missingfiles
+drwxr-xr-x 2 sysadmin sysadmin 4096 Apr 10 11:16 my_dir
+-rw-r--r-- 1 sysadmin sysadmin    0 Apr 10 11:16 my_file
+drwxr-xr-x 3 sysadmin sysadmin 4096 Feb  4 11:02 setup_scripts
+drwxr-xr-x 3 sysadmin sysadmin 4096 Mar 29 19:04 Trainig
+drwxr-xr-x 2 sysadmin sysadmin 4096 Feb  4 11:09 web-vulns
+sysadmin@UbuntuDesktop:~/Documents$ sudo chown root:root my_file
+[sudo] password for sysadmin: 
+sysadmin@UbuntuDesktop:~/Documents$ ls
+docker_files  epscript  missingfiles  my_dir  my_file  setup_scripts  Trainig  web-vulns
+sysadmin@UbuntuDesktop:~/Documents$ ls =l
+ls: cannot access '=l': No such file or directory
+sysadmin@UbuntuDesktop:~/Documents$ ls -l
+total 28
+drwxr-xr-x 2 sysadmin sysadmin 4096 Feb  4 11:08 docker_files
+drwxr-xr-x 8 sysadmin sysadmin 4096 Feb  4 11:06 epscript
+drwxr-xr-x 2 sysadmin sysadmin 4096 Feb  4 11:06 missingfiles
+drwxr-xr-x 2 sysadmin sysadmin 4096 Apr 10 11:16 my_dir
+-rw-r--r-- 1 root     root        0 Apr 10 11:16 my_file
+drwxr-xr-x 3 sysadmin sysadmin 4096 Feb  4 11:02 setup_scripts
+drwxr-xr-x 3 sysadmin sysadmin 4096 Mar 29 19:04 Trainig
+drwxr-xr-x 2 sysadmin sysadmin 4096 Feb  4 11:09 web-vulns
+sysadmin@UbuntuDesktop:~/Documents$ nano my_file
+sysadmin@UbuntuDesktop:~/Documents$ rm my_file
+rm: remove write-protected regular empty file 'my_file'? n
+
+
+===
+sysadmin@UbuntuDesktop:~/Documents$ ls -l my_file 
+-rw-r--r-- 1 root root 0 Apr 10 11:16 my_file
+sysadmin@UbuntuDesktop:~/Documents$ sudo chmod u=rw,g=rw my_file 
+sysadmin@UbuntuDesktop:~/Documents$ ls -l my_file 
+-rw-rw-r-- 1 root root 0 Apr 10 11:16 my_file
+sysadmin@UbuntuDesktop:~/Documents$ nano my_file 
+sysadmin@UbuntuDesktop:~/Documents$ sudo chmod u=rw,g=rw,o=rw my_file 
+sysadmin@UbuntuDesktop:~/Documents$ ls -l my_file 
+-rw-rw-rw- 1 root root 0 Apr 10 11:16 my_file
+sysadmin@UbuntuDesktop:~/Documents$ nano my_file 
+sysadmin@UbuntuDesktop:~/Documents$ sudo chmod +x my_file 
+sysadmin@UbuntuDesktop:~/Documents$ ls
+docker_files  epscript  missingfiles  my_dir  my_file  setup_scripts  Trainig  web-vulns
+sysadmin@UbuntuDesktop:~/Documents$ ls -l my_file 
+-rwxrwxrwx 1 root root 0 Apr 10 11:16 my_file
+sysadmin@UbuntuDesktop:~/Documents$ sudo chmod -x my_file 
+sysadmin@UbuntuDesktop:~/Documents$ ls -l my_file 
+-rw-rw-rw- 1 root root 0 Apr 10 11:16 my_file
+
+sysadmin@UbuntuDesktop:~/Documents$ ls -l my_file 
+-rw-rw-rw- 1 root root 0 Apr 10 11:16 my_file
+sysadmin@UbuntuDesktop:~/Documents$ sudo chmod 766 my_file 
+sysadmin@UbuntuDesktop:~/Documents$ ls -l my_file 
+-rwxrw-rw- 1 root root 0 Apr 10 11:16 my_file
+sysadmin@UbuntuDesktop:~/Documents$ echo "1,2,3,4,5,6,7 - permission groups"
+1,2,3,4,5,6,7 - permission groups
+sysadmin@UbuntuDesktop:~/Documents$ sudo chmod 444 my_file 
+sysadmin@UbuntuDesktop:~/Documents$ ls -l my_file 
+-r--r--r-- 1 root root 0 Apr 10 11:16 my_file
+sysadmin@UbuntuDesktop:~/Documents$ 7 - rwx
+7: command not found
+sysadmin@UbuntuDesktop:~/Documents$ 6 - rw
+6: command not found
+sysadmin@UbuntuDesktop:~/Documents$ sudo chmod 544 my_file 
+sysadmin@UbuntuDesktop:~/Documents$ ls -l my_file 
+-r-xr--r-- 1 root root 0 Apr 10 11:16 my_file
+sysadmin@UbuntuDesktop:~/Documents$ 5 - xr
+5: command not found
+sysadmin@UbuntuDesktop:~/Documents$ 4 - r
+4: command not found
+sysadmin@UbuntuDesktop:~/Documents$ sudo chmod 3544 my_file 
+sysadmin@UbuntuDesktop:~/Documents$ ls -l my_file 
+-r-xr-Sr-T 1 root root 0 Apr 10 11:16 my_file
+sysadmin@UbuntuDesktop:~/Documents$ sudo chmod 333 my_file 
+sysadmin@UbuntuDesktop:~/Documents$ ls -l my_file 
+--wx-wx-wx 1 root root 0 Apr 10 11:16 my_file
+sysadmin@UbuntuDesktop:~/Documents$ 3 - wx
+3: command not found
+sysadmin@UbuntuDesktop:~/Documents$ sudo chmod 222 my_file 
+sysadmin@UbuntuDesktop:~/Documents$ ls -l my_file 
+--w--w--w- 1 root root 0 Apr 10 11:16 my_file
+sysadmin@UbuntuDesktop:~/Documents$ 2 - w
+2: command not found
+sysadmin@UbuntuDesktop:~/Documents$ sudo chmod 111\ my_file 
+chmod: missing operand after ‘111 my_file’
+Try 'chmod --help' for more information.
+sysadmin@UbuntuDesktop:~/Documents$ sudo chmod 111 my_file 
+sysadmin@UbuntuDesktop:~/Documents$ ls -l my_file 
+---x--x--x 1 root root 0 Apr 10 11:16 my_file
+sysadmin@UbuntuDesktop:~/Documents$ 1 - x
+1: command not found
+sysadmin@UbuntuDesktop:~/Documents$ 
+
+=== make sure they have password
+
+sysadmin@UbuntuDesktop:/etc$ sudo cat passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+ if there is 0 on the third column that means it does not have password.
+ 
+ sysadmin@UbuntuDesktop:/etc$ grep adam /etc/passwd >> ~/research/permissions.txt 
+sysadmin@UbuntuDesktop:/etc$ su adam
+Password: 
+su: Authentication failure
+sysadmin@UbuntuDesktop:/etc$ su adam
+Password: 
+su: Authentication failure
+sysadmin@UbuntuDesktop:/etc$ su adam
+Password: 
+su: Authentication failure
+sysadmin@UbuntuDesktop:/etc$ sudo nano /etc/passwd
+[sudo] password for sysadmin: 
+Sorry, try again.
+[sudo] password for sysadmin: 
+sysadmin@UbuntuDesktop:/etc$ grep adam /etc/passwd >> ~/research/permissions.txt 
+sysadmin@UbuntuDesktop:/etc$ nano ~/research/permissions.txt 
+
+ 
+ ========= Managing services and security =======
+ 
+ systemctl -t service --all (List all services)
+ 
+ sudo systemctl stop smbd (stop service)
+ 
+ sudo apt remove samba (to remove the serice)
+ 
+ sudo apt remove dovecot.serivce
+
+ sudo apt remove dovecot.serivce
+
+ sudo apt autoremove
+
+ sudo apt purge dovecot*
+
+ sudo systemctl stop smbd
+
+ sudo systemctl status vsftpd
+
+ sudo systemctl status apache2
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+ 
+ 
+

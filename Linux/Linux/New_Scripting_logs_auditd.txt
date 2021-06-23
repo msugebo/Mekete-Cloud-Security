@@ -1,0 +1,109 @@
+ =============== System log violation audit with auditd =================
+ 
+ 
+ sysadmin@UbuntuDesktop:~$ sudo apt-get install auditd
+
+
+==== auditctl
+==== ausearch
+==== aureport
+
+
+sysadmin@UbuntuDesktop:~$ systemctl status auditd
+
+sudo nano /etc/audit/auditd.conf
+
+
+
+
+sudo auditctl -l
+	there should be No rules
+	
+	
+sudo nano /etc/audit/rules.d/audit.rules
+	## Rules to audit etc/shadow and passwd
+	-w /etc/shadow -p wa -k shadow
+	-w /etc/passwd -p wa -k passwd
+		-w to watch
+		-p permission
+		wa ownership and attribute
+		-k key name
+		
+	
+		
+sysadmin@UbuntuDesktop:~$ sudo systemctl restart auditd
+
+
+sysadmin@UbuntuDesktop:~$ sudo auditctl -l
+-w /etc/shadow -p wa -k shadow
+-w /etc/passwd -p wa -k passwd
+
+		
+sysadmin@UbuntuDesktop:~$ sudo auditctl -w /home/sysadmin/Music/
+sysadmin@UbuntuDesktop:~$ sudo auditctl -l
+-w /etc/shadow -p wa -k shadow
+-w /etc/passwd -p wa -k passwd
+-w /home/sysadmin/Music -p rwxa (a is attribute)
+
+sysadmin@UbuntuDesktop:~$ su sysadmin
+Password: 
+sysadmin@UbuntuDesktop:~$ sudo useradd criminal
+sysadmin@UbuntuDesktop:~$ exit
+exit
+sysadmin@UbuntuDesktop:~$ su sysadmin
+Password: 
+sysadmin@UbuntuDesktop:~$ sudo aureport -au 
+
+Authentication Report
+============================================
+# date time acct host term exe success event
+============================================
+1. 04/17/2021 14:11:52 sysadmin ? /dev/pts/4 /usr/bin/sudo no 223
+2. 04/17/2021 14:11:53 sysadmin ? /dev/pts/4 /usr/bin/sudo no 224
+3. 04/17/2021 15:16:43 sysadmin UbuntuDesktop /dev/tty2 /usr/lib/gdm3/gdm-session-worker no 648
+4. 04/17/2021 15:26:25 sysadmin UbuntuDesktop /dev/tty2 /usr/lib/gdm3/gdm-session-worker no 716
+5. 04/17/2021 15:27:11 sysadmin UbuntuDesktop /dev/tty2 /usr/lib/gdm3/gdm-session-worker yes 718
+6. 04/18/2021 13:56:39 gdm UbuntuDesktop /dev/tty1 /usr/lib/gdm3/gdm-session-worker yes 268
+7. 04/18/2021 13:58:28 sysadmin UbuntuDesktop /dev/tty1 /usr/lib/gdm3/gdm-session-worker no 305
+8. 04/18/2021 13:58:34 sysadmin UbuntuDesktop /dev/tty1 /usr/lib/gdm3/gdm-session-worker yes 307
+9. 04/18/2021 14:28:35 gdm UbuntuDesktop /dev/tty1 /usr/lib/gdm3/gdm-session-worker yes 270
+10. 04/18/2021 14:29:06 sysadmin UbuntuDesktop /dev/tty1 /usr/lib/gdm3/gdm-session-worker yes 296
+11. 04/18/2021 14:44:37 sysadmin ? /dev/pts/0 /usr/bin/sudo yes 413
+12. 04/18/2021 16:45:08 gdm UbuntuDesktop /dev/tty1 /usr/lib/gdm3/gdm-session-worker yes 264
+13. 04/18/2021 16:45:23 sysadmin UbuntuDesktop /dev/tty1 /usr/lib/gdm3/gdm-session-worker yes 288
+14. 04/19/2021 18:28:35 gdm UbuntuDesktop /dev/tty1 /usr/lib/gdm3/gdm-session-worker yes 277
+15. 04/19/2021 18:28:59 sysadmin UbuntuDesktop /dev/tty1 /usr/lib/gdm3/gdm-session-worker yes 302
+16. 04/19/2021 18:34:07 sysadmin ? /dev/pts/4 /usr/bin/sudo yes 355
+17. 04/19/2021 18:35:38 sysadmin ? /dev/pts/3 /usr/bin/sudo yes 364
+18. 04/19/2021 18:44:42 sysadmin ? /dev/pts/4 /bin/su yes 475
+19. 04/19/2021 18:45:15 sysadmin ? /dev/pts/4 /bin/su yes 495
+
+
+sysadmin@UbuntuDesktop:~$ sudo aureport -m
+
+Account Modifications Report
+=================================================
+# date time auid addr term exe acct success event
+=================================================
+1. 04/18/2021 13:56:38 -1 ? ? /usr/sbin/useradd vboxadd no 261
+2. 04/18/2021 13:56:38 -1 ? ? /usr/sbin/useradd vboxadd no 262
+3. 04/18/2021 13:56:38 -1 ? ? /usr/sbin/useradd vboxadd no 263
+4. 04/18/2021 13:56:38 -1 ? ? /usr/sbin/useradd vboxadd no 264
+5. 04/18/2021 14:28:34 -1 ? ? /usr/sbin/useradd vboxadd no 263
+6. 04/18/2021 14:28:34 -1 ? ? /usr/sbin/useradd vboxadd no 264
+7. 04/18/2021 14:28:34 -1 ? ? /usr/sbin/useradd vboxadd no 265
+8. 04/18/2021 14:28:34 -1 ? ? /usr/sbin/useradd vboxadd no 266
+9. 04/18/2021 16:45:07 -1 ? ? /usr/sbin/useradd vboxadd no 257
+10. 04/18/2021 16:45:07 -1 ? ? /usr/sbin/useradd vboxadd no 258
+11. 04/18/2021 16:45:07 -1 ? ? /usr/sbin/useradd vboxadd no 259
+12. 04/18/2021 16:45:07 -1 ? ? /usr/sbin/useradd vboxadd no 260
+13. 04/19/2021 18:28:34 -1 ? ? /usr/sbin/useradd vboxadd no 270
+14. 04/19/2021 18:28:34 -1 ? ? /usr/sbin/useradd vboxadd no 271
+15. 04/19/2021 18:28:34 -1 ? ? /usr/sbin/useradd vboxadd no 272
+16. 04/19/2021 18:28:34 -1 ? ? /usr/sbin/useradd vboxadd no 273
+17. 04/19/2021 18:44:51 1000 UbuntuDesktop pts/4 /usr/sbin/useradd criminal yes 484
+18. 04/19/2021 18:44:51 1000 UbuntuDesktop pts/4 /usr/sbin/useradd ? yes 485
+
+
+
+

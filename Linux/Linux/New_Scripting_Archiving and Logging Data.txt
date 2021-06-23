@@ -1,0 +1,309 @@
+=== backup
+
+	== tar (tape archive)
+
+	sudo tar cvf hurrican-backup-10-11-2018.tar /var/log
+
+	cvf
+	
+	c - stands for create. Always needed when creating an archive.
+	v - stands for verbose. It will print progress status and useful information as it’s 	running. (optional)
+	f - indicates the title of the archive.
+	
+	
+
+	/var/log - the directory to be backedup
+	
+			== untar
+	
+	sudo mkdir patient_search
+	tar xvvf 20190814epscript.tar -C patinet_search/episcrpt/patients
+		x stands for extract
+		-C stands for change directory
+		
+	tar xvf 20190814epscript.tar -C patinet_search/episcrpt/patients
+	
+	check existing files after restore
+	
+		grep -R -i -e "Mark.Lopez"
+		
+			-R recursive
+			-i igonre-case
+			-e pattern
+	
+	== gzip
+	sudo gzip 2018-10-12-hurrican-backup.tar
+	
+	== unzip gzip
+	sudo gunzip 2018-10-12-hurrican-backup.tar.gz
+	
+
+
+	tar cvvf 2021-04-12-epscript.tar epscript 
+	
+	tar tvvf 2021-04-12-epscript.tar epscript 
+
+	tar vvcf --verify 2021-04-12-epscript.tar epscript (verify data)
+	
+	tar vvcWf 2021-04-12-epscript.tar epscript (Also Verify)
+
+	
+	===== restore
+	
+	mkdir restored_emails
+	tar xvvf 10May2019-235536-0700.tar -C restored_emails/ --wildcards "*.csv"
+	
+	
+	
+	========= Incremental Backup
+	
+	tar cvvWf emerg_back_sun.tar --listed-incremental=emerg_backup.snar --level=0 emergency
+	
+	== Example
+		=== Create backup
+~$ cd Documents/epscript/
+sysadmin@UbuntuDesktop:~/Documents/epscript$ ls -l emergency/admit/ emergency/discharge/
+emergency/admit/:
+total 16
+-rw-r--r-- 1 sysadmin sysadmin 689 Feb  4 11:06 file1.txt
+-rw-r--r-- 1 sysadmin sysadmin 661 Feb  4 11:06 file3.txt
+-rw-r--r-- 1 sysadmin sysadmin 840 Feb  4 11:06 file4.txt
+-rw-r--r-- 1 sysadmin sysadmin 341 Feb  4 11:06 file5.txt
+
+emergency/discharge/:
+total 4
+-rw-r--r-- 1 sysadmin sysadmin 341 Feb  4 11:06 file2.txt
+	== Initial
+$ tar cvvWf emerg_backup_sun.tar --listed-incremental=emerg_backup.snar --level=0 emergency
+tar: emergency: Directory is new
+tar: emergency/admit: Directory is new
+tar: emergency/discharge: Directory is new
+drwxr-xr-x sysadmin/sysadmin 0 2021-02-04 11:06 emergency/
+drwxr-xr-x sysadmin/sysadmin 0 2021-02-04 11:06 emergency/admit/
+drwxr-xr-x sysadmin/sysadmin 0 2021-02-04 11:06 emergency/discharge/
+-rw-r--r-- sysadmin/sysadmin 0 2021-02-04 11:06 emergency/.gitkeep
+-rw-r--r-- sysadmin/sysadmin 689 2021-02-04 11:06 emergency/admit/file1.txt
+-rw-r--r-- sysadmin/sysadmin 661 2021-02-04 11:06 emergency/admit/file3.txt
+-rw-r--r-- sysadmin/sysadmin 840 2021-02-04 11:06 emergency/admit/file4.txt
+-rw-r--r-- sysadmin/sysadmin 341 2021-02-04 11:06 emergency/admit/file5.txt
+-rw-r--r-- sysadmin/sysadmin 341 2021-02-04 11:06 emergency/discharge/file2.txt
+Verify drwxr-xr-x sysadmin/sysadmin  29 2021-02-04 11:06 emergency/
+tar: emergency: Directory is new
+tar: emergency/admit: Directory is new
+tar: emergency/discharge: Directory is new
+Verify drwxr-xr-x sysadmin/sysadmin  45 2021-02-04 11:06 emergency/admit/
+Verify drwxr-xr-x sysadmin/sysadmin  12 2021-02-04 11:06 emergency/discharge/
+Verify -rw-r--r-- sysadmin/sysadmin   0 2021-02-04 11:06 emergency/.gitkeep
+Verify -rw-r--r-- sysadmin/sysadmin 689 2021-02-04 11:06 emergency/admit/file1.txt
+Verify -rw-r--r-- sysadmin/sysadmin 661 2021-02-04 11:06 emergency/admit/file3.txt
+Verify -rw-r--r-- sysadmin/sysadmin 840 2021-02-04 11:06 emergency/admit/file4.txt
+Verify -rw-r--r-- sysadmin/sysadmin 341 2021-02-04 11:06 emergency/admit/file5.txt
+Verify -rw-r--r-- sysadmin/sysadmin 341 2021-02-04 11:06 emergency/discharge/file2.txt
+
+$ ls -l
+total 48
+drwxr-xr-x 2 sysadmin sysadmin  4096 Feb  4 11:06 backup
+drwxr-xr-x 2 sysadmin sysadmin  4096 Feb  4 11:06 doctors
+-rw-r--r-- 1 sysadmin sysadmin   278 Apr 12 20:06 emerg_backup.snar
+-rw-r--r-- 1 sysadmin sysadmin 20480 Apr 12 20:06 emerg_backup_sun.tar
+drwxr-xr-x 4 sysadmin sysadmin  4096 Feb  4 11:06 emergency
+drwxr-xr-x 2 sysadmin sysadmin  4096 Feb  4 11:06 patients
+drwxr-xr-x 5 sysadmin sysadmin  4096 Feb  4 11:06 testenvir
+drwxr-xr-x 3 sysadmin sysadmin  4096 Feb  4 11:05 treatments
+
+		== verify
+
+$ tar tvvf emerg_backup_sun.tar --incremental
+drwxr-xr-x sysadmin/sysadmin 29 2021-02-04 11:06 emergency/
+Y .gitkeep
+D admit
+D discharge
+	
+	Y - Newly added
+	N - Not New /Not added
+	D - Directory
+	
+drwxr-xr-x sysadmin/sysadmin 45 2021-02-04 11:06 emergency/admit/
+Y file1.txt
+Y file3.txt
+Y file4.txt
+Y file5.txt
+
+drwxr-xr-x sysadmin/sysadmin 12 2021-02-04 11:06 emergency/discharge/
+Y file2.txt
+
+-rw-r--r-- sysadmin/sysadmin  0 2021-02-04 11:06 emergency/.gitkeep
+-rw-r--r-- sysadmin/sysadmin 689 2021-02-04 11:06 emergency/admit/file1.txt
+-rw-r--r-- sysadmin/sysadmin 661 2021-02-04 11:06 emergency/admit/file3.txt
+-rw-r--r-- sysadmin/sysadmin 840 2021-02-04 11:06 emergency/admit/file4.txt
+-rw-r--r-- sysadmin/sysadmin 341 2021-02-04 11:06 emergency/admit/file5.txt
+-rw-r--r-- sysadmin/sysadmin 341 2021-02-04 11:06 emergency/discharge/file2.txt
+
+	 === Incremental
+	 
+$ echo "New file for Cjones" > emergency/admit/file6.txt
+$ tar cvvWf emer_back_mon.tar --listed-incremental=emerg_backup.snar emergency
+drwxr-xr-x sysadmin/sysadmin 0 2021-02-04 11:06 emergency/
+drwxr-xr-x sysadmin/sysadmin 0 2021-04-12 20:11 emergency/admit/
+drwxr-xr-x sysadmin/sysadmin 0 2021-02-04 11:06 emergency/discharge/
+-rw-r--r-- sysadmin/sysadmin 20 2021-04-12 20:11 emergency/admit/file6.txt
+Verify drwxr-xr-x sysadmin/sysadmin 29 2021-02-04 11:06 emergency/
+Verify drwxr-xr-x sysadmin/sysadmin 56 2021-04-12 20:11 emergency/admit/
+Verify drwxr-xr-x sysadmin/sysadmin 12 2021-02-04 11:06 emergency/discharge/
+Verify -rw-r--r-- sysadmin/sysadmin 20 2021-04-12 20:11 emergency/admit/file6.txt
+
+		========= verify incremental
+
+$tar tvvf emerg_backup_sun.tar --incremental 
+drwxr-xr-x sysadmin/sysadmin 29 2021-02-04 11:06 emergency/
+Y .gitkeep
+D admit
+D discharge
+
+drwxr-xr-x sysadmin/sysadmin 45 2021-02-04 11:06 emergency/admit/
+Y file1.txt
+Y file3.txt
+Y file4.txt
+Y file5.txt
+
+drwxr-xr-x sysadmin/sysadmin 12 2021-02-04 11:06 emergency/discharge/
+Y file2.txt
+
+-rw-r--r-- sysadmin/sysadmin  0 2021-02-04 11:06 emergency/.gitkeep
+-rw-r--r-- sysadmin/sysadmin 689 2021-02-04 11:06 emergency/admit/file1.txt
+-rw-r--r-- sysadmin/sysadmin 661 2021-02-04 11:06 emergency/admit/file3.txt
+-rw-r--r-- sysadmin/sysadmin 840 2021-02-04 11:06 emergency/admit/file4.txt
+-rw-r--r-- sysadmin/sysadmin 341 2021-02-04 11:06 emergency/admit/file5.txt
+-rw-r--r-- sysadmin/sysadmin 341 2021-02-04 11:06 emergency/discharge/file2.txt
+
+$ echo " Update MSmith" >> emergency/discharge/file2.txt
+sysadmin@UbuntuDesktop:~/Documents/epscript$ tar cvvWf emerg_back_tues.tar --listed-incremental=emerg_backup.snar emergency
+drwxr-xr-x sysadmin/sysadmin 0 2021-02-04 11:06 emergency/
+drwxr-xr-x sysadmin/sysadmin 0 2021-04-12 20:11 emergency/admit/
+drwxr-xr-x sysadmin/sysadmin 0 2021-02-04 11:06 emergency/discharge/
+-rw-r--r-- sysadmin/sysadmin 356 2021-04-12 20:15 emergency/discharge/file2.txt
+Verify drwxr-xr-x sysadmin/sysadmin  29 2021-02-04 11:06 emergency/
+Verify drwxr-xr-x sysadmin/sysadmin  56 2021-04-12 20:11 emergency/admit/
+Verify drwxr-xr-x sysadmin/sysadmin  12 2021-02-04 11:06 emergency/discharge/
+Verify -rw-r--r-- sysadmin/sysadmin 356 2021-04-12 20:15 emergency/discharge/file2.txt
+sysadmin@UbuntuDesktop:~/Documents/epscript$ tar tvvf emer_back_tues.tar --incremental
+tar: emer_back_tues.tar: Cannot open: No such file or directory
+tar: Error is not recoverable: exiting now
+sysadmin@UbuntuDesktop:~/Documents/epscript$ tar tvvf emerg_back_tues.tar --incremental
+drwxr-xr-x sysadmin/sysadmin 29 2021-02-04 11:06 emergency/
+N .gitkeep
+D admit
+D discharge
+
+drwxr-xr-x sysadmin/sysadmin 56 2021-04-12 20:11 emergency/admit/
+N file1.txt
+N file3.txt
+N file4.txt
+N file5.txt
+N file6.txt
+
+drwxr-xr-x sysadmin/sysadmin 12 2021-02-04 11:06 emergency/discharge/
+Y file2.txt
+
+-rw-r--r-- sysadmin/sysadmin 356 2021-04-12 20:15 emergency/discharge/file2.txt
+sysadmin@UbuntuDesktop:~/Documents/epscript$ ls -l *.tar
+-rw-r--r-- 1 sysadmin sysadmin 10240 Apr 12 20:12 emer_back_mon.tar
+-rw-r--r-- 1 sysadmin sysadmin 10240 Apr 12 20:15 emerg_back_tues.tar
+-rw-r--r-- 1 sysadmin sysadmin 20480 Apr 12 20:06 emerg_backup_sun.tar
+sysadmin@UbuntuDesktop:~/Documents/epscript$ ls
+backup  doctors  emer_back_mon.tar  emerg_back_tues.tar  emerg_backup.snar  emerg_backup_sun.tar  emergency  patients  testenvir  treatments
+sysadmin@UbuntuDesktop:~/Documents/epscript$ rm -r emergency/
+sysadmin@UbuntuDesktop:~/Documents/epscript$ ls
+backup  doctors  emer_back_mon.tar  emerg_back_tues.tar  emerg_backup.snar  emerg_backup_sun.tar  patients  testenvir  treatments
+sysadmin@UbuntuDesktop:~/Documents/epscript$ tar xvvf emerg_back_sun.tar --incremental 
+tar: emerg_back_sun.tar: Cannot open: No such file or directory
+tar: Error is not recoverable: exiting now
+sysadmin@UbuntuDesktop:~/Documents/epscript$ tar xvvf emerg_back_sun.tar --incremental
+tar: emerg_back_sun.tar: Cannot open: No such file or directory
+tar: Error is not recoverable: exiting now
+sysadmin@UbuntuDesktop:~/Documents/epscript$ tar xvvf emerg_backup_sun.tar
+drwxr-xr-x sysadmin/sysadmin 29 2021-02-04 11:06 emergency/
+drwxr-xr-x sysadmin/sysadmin 45 2021-02-04 11:06 emergency/admit/
+drwxr-xr-x sysadmin/sysadmin 12 2021-02-04 11:06 emergency/discharge/
+-rw-r--r-- sysadmin/sysadmin  0 2021-02-04 11:06 emergency/.gitkeep
+-rw-r--r-- sysadmin/sysadmin 689 2021-02-04 11:06 emergency/admit/file1.txt
+-rw-r--r-- sysadmin/sysadmin 661 2021-02-04 11:06 emergency/admit/file3.txt
+-rw-r--r-- sysadmin/sysadmin 840 2021-02-04 11:06 emergency/admit/file4.txt
+-rw-r--r-- sysadmin/sysadmin 341 2021-02-04 11:06 emergency/admit/file5.txt
+-rw-r--r-- sysadmin/sysadmin 341 2021-02-04 11:06 emergency/discharge/file2.txt
+sysadmin@UbuntuDesktop:~/Documents/epscript$ ls -R emergency/
+emergency/:
+admit  discharge
+
+emergency/admit:
+file1.txt  file3.txt  file4.txt  file5.txt
+
+emergency/discharge:
+file2.txt
+
+$ tar xvvf emer_back_mon.tar --incremental 
+drwxr-xr-x sysadmin/sysadmin 29 2021-02-04 11:06 emergency/
+drwxr-xr-x sysadmin/sysadmin 56 2021-04-12 20:11 emergency/admit/
+drwxr-xr-x sysadmin/sysadmin 12 2021-02-04 11:06 emergency/discharge/
+-rw-r--r-- sysadmin/sysadmin 20 2021-04-12 20:11 emergency/admit/file6.txt
+
+    ============== Backup Summary =============
+	
+	sudo tar cvf hurrican-backup-10-11-2018.tar /var/log
+	
+	tar xvvf 20190814epscript.tar (original directory)
+	
+	tar xvvf 20190814epscript.tar -C patinet_search/episcrpt/patients (change directory)
+	
+
+
+	=========== Incremental Summary ===========
+=== Initial backeup
+sysadmin@UbuntuDesktop:~/Documents/epscript$ tar cvvWf testenvir_backup_sun.tar --listed-incremental=testenvir_backup.snar --level=0 testenvir
+
+=== Add Incremental backeup
+sysadmin@UbuntuDesktop:~/Documents/epscript$ tar cvvWf testenvir_backup_mon.tar --listed-incremental=testenvir_backup.snar testenvir	
+
+=== Restore backup
+sysadmin@UbuntuDesktop:~/Documents/epscript$ tar xvvf testenvir_backup_sun.tar --incremental 
+
+
+=== Verify backup
+sysadmin@UbuntuDesktop:~/Documents/epscript$ ls
+tar vvcf --verify testenvir_backup_mon.tar testenvir 
+
+
+   ===================gz compression Summary ===============
+   
+ 
+	== gzip
+	sudo gzip 2018-10-12-hurrican-backup.tar
+	
+	== unzip gzip
+	sudo gunzip 2018-10-12-hurrican-backup.tar.gz
+
+================== Checkpoints ========================
+
+
+
+============= Backup locations =================
+
+cd /etc
+
+ls cron.daily
+ls cron.weekly
+ls cron.monthly
+
+
+	
+	
+	
+	
+	
+	
+
+
+
+
+	
+	

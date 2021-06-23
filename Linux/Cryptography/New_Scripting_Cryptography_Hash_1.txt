@@ -1,0 +1,21 @@
+============= Cryptography =================
+========= Hashing ============
+
+
+=================== simple form ===============
+sysadmin@UbuntuDesktop:~/home/sysadmin/Alphabet_Bandit_Investigation_Reports/backup$ md5sum * > hashes
+sysadmin@UbuntuDesktop:~/home/sysadmin/Alphabet_Bandit_Investigation_Reports/backup$ mv hashes ../current/
+sysadmin@UbuntuDesktop:~/home/sysadmin/Alphabet_Bandit_Investigation_Reports/backup$ cd ../current/
+sysadmin@UbuntuDesktop:~/home/sysadmin/Alphabet_Bandit_Investigation_Reports/current$ md5sum -c hashes 
+Investigation_1101: FAILED
+Investigation_1108: OK
+Investigation_1110: FAILED
+Investigation_1112: OK
+Investigation_1116: OK
+md5sum: WARNING: 2 computed checksums did NOT match
+sysadmin@UbuntuDesktop:~/home/sysadmin/Alphabet_Bandit_Investigation_Reports/current$ diff Investigation_1101 ../backup/Investigation_1101
+13c13
+< Dr Browns Residence was burgalarized, exotic car was taken as well as several containers of Plutonium.
+---
+> Dr Browns Residence was burgalarized, exotic car was taken as well as several containers of Gasoline
+

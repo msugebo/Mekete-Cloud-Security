@@ -1,0 +1,181 @@
+
+ ============users and groups
+ 
+ whoami - to see me
+ 
+ id - to see my group
+ 
+ sudo su (Elivate priviledge)
+ 
+ sudo -l (to see the permissions)
+ 
+ sudo -lU username (to see someone else's permissions)
+ 
+ sudo usermod -aG sudo username (-a add G is Group sudo is the group)
+  
+  su - to switch user
+  
+  
+ sudo visudo (Use this to edit/add permisions) /etc/sudoers.tmp
+ DO NOT USE nano to edit permissions
+ apt option to allow install updates
+ 
+ Original ===================================
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# Please consider adding local content in /etc/sudoers.d/ instead of
+# directly modifying this file.
+#
+# See the man page for details on how to write a sudoers file.
+#
+Defaults        env_reset
+Defaults        mail_badpass
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+vagrant ALL=(ALL:ALL) NOPASSWD:ALL
+# Members of the admin group may gain root privileges
+%admin ALL=(ALL) ALL
+
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+
+# See sudoers(5) for more information on "#include" directives:
+
+#includedir /etc/sudoers.d
+max  ALL=(ALL:ALL) /usr/bin/less
+
+
+===================================
+
+===== Edited
+ #
+# This file MUST be edited with the 'visudo' command as root.
+#
+# Please consider adding local content in /etc/sudoers.d/ instead of
+# directly modifying this file.
+#
+# See the man page for details on how to write a sudoers file.
+#
+Defaults        env_reset
+Defaults        mail_badpass
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+vagrant ALL=(ALL:ALL) NOPASSWD:ALL
+# Members of the admin group may gain root privileges
+%admin ALL=(ALL) ALL
+
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+
+# See sudoers(5) for more information on "#include" directives:
+
+#includedir /etc/sudoers.d
+max  ALL=(ALL:ALL) /usr/bin/less
+john ALL=(ALL;ALL) /usr/bin/apt
+===============================================================
+
+
+
+=========== add user =======================
+
+
+sysadmin@UbuntuDesktop:/$ sudo adduser joseph
+Adding user `joseph' ...
+Adding new group `joseph' (1014) ...
+Adding new user `joseph' (1007) with group `joseph' ...
+Creating home directory `/home/joseph' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+Changing the user information for joseph
+Enter the new value, or press ENTER for the default
+	Full Name []: Joseph Jacob
+	Room Number []: 1513
+	Work Phone []: 33-33-3333
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] y
+
+sysadmin@UbuntuDesktop:/$ sudo addgroup developers
+Adding group `developers' (GID 1015) ...
+Done.
+sysadmin@UbuntuDesktop:/$ sudo usermod -aG developers joseph
+sysadmin@UbuntuDesktop:/$ groups joseph
+joseph : joseph developers
+sysadmin@UbuntuDesktop:/$ 
+
+id joseph - check his permissions
+
+grep joseph etc/passwd
+
+======== Managing Service Users ==========
+
+			=== add service user
+sysadmin@UbuntuDesktop:~/Documents$ sudo adduser --system --no-create-home splunk
+Adding system user `splunk' (UID 124) ...
+Adding new user `splunk' (UID 124) with group `nogroup' ...
+Not creating home directory `/home/splunk'.
+
+
+ === check added user
+sysadmin@UbuntuDesktop:~/Documents$ sudo tail /etc/passwd | grep splunk
+splunk:x:124:65534::/home/splunk:/usr/sbin/nologin
+
+sysadmin@UbuntuDesktop:~/Documents$ id splunk
+uid=124(splunk) gid=65534(nogroup) groups=65534(nogroup)
+
+sysadmin@UbuntuDesktop:~/Documents$ ls /home/
+adam  billy  http  instructor  jack  jane  john  joseph  max  sally  student  sysadmin  user.hashes  vagrant
+
+sysadmin@UbuntuDesktop:~/Documents$ tail /etc/group (should not exist)
+adam:x:1009:adam
+billy:x:1010:
+http:x:1011:
+sally:x:1012:
+postfix:x:127:
+postdrop:x:128:
+rdma:x:132:
+jane:x:1013:
+joseph:x:1014:
+developers:x:1015:joseph,billy,sally,max
+
+
+			=== Remove
+sudo deluser --remove-all-files ftp
+
+sudo which tripwire
+
+			=== Example
+			
+ sysadmin@UbuntuDesktop:~/Documents$ sudo tail /etc/passwd | grep splunk
+splunk:x:124:65534::/home/splunk:/usr/sbin/nologin
+sysadmin@UbuntuDesktop:~/Documents$ sudo chmod +x 700 /usr/sbin/tripwire
+chmod: cannot access '700': No such file or directory
+sysadmin@UbuntuDesktop:~/Documents$ sudo chmod 700 /usr/sbin/tripwire
+sysadmin@UbuntuDesktop:~/Documents$ ls -aal/usr/sbin/tripwire
+ls: invalid option -- '/'
+Try 'ls --help' for more information.
+sysadmin@UbuntuDesktop:~/Documents$ ls -all/usr/sbin/tripwire
+ls: invalid option -- '/'
+Try 'ls --help' for more information.
+sysadmin@UbuntuDesktop:~/Documents$ ls -all /usr/sbin/tripwire
+-rwx------ 1 root root 3260376 Nov 10  2016 /usr/sbin/tripwire
+sysadmin@UbuntuDesktop:~/Documents$ 

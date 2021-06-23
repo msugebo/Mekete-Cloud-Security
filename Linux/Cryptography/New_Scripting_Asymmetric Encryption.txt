@@ -1,0 +1,119 @@
+============= Cryptography =================
+========= Asymmetric Encryption and Hashing ============
+
+== symmetric key formula
+(N * (N-1))/ 2
+
+== Asymmetric key formula
+
+N*2 (private and public)
+
+
+============================= Public Key ==============
+
+========= Generate Key
+sysadmin@UbuntuDesktop:~$ gpg --gen-key
+gpg (GnuPG) 2.2.4; Copyright (C) 2017 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+gpg: keybox '/home/sysadmin/.gnupg/pubring.kbx' created
+Note: Use "gpg --full-generate-key" for a full featured key generation dialog.
+
+GnuPG needs to construct a user ID to identify your key.
+
+Real name: Julie
+Email address: julie@email.com
+You selected this USER-ID:
+    "Julie <julie@email.com>"
+
+Change (N)ame, (E)mail, or (O)kay/(Q)uit? O
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+
+
+== verify key
+sysadmin@UbuntuDesktop:~$ gpg --list-keys
+gpg: checking the trustdb
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+gpg: next trustdb check due at 2023-05-20
+/home/sysadmin/.gnupg/pubring.kbx
+---------------------------------
+pub   rsa3072 2021-05-20 [SC] [expires: 2023-05-20]
+      0A23F33305DDB38C11B84657A939B39601B44D20
+uid           [ultimate] Julie <julie@email.com>
+sub   rsa3072 2021-05-20 [E] [expires: 2023-05-20]
+
+=== Export key to gpg
+gpg --armor --output julie.gpg --export julie@email.com
+
+
+=== Verify the key
+sysadmin@UbuntuDesktop:~$ cat julie.gpg 
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mQGNBGCluaIBDACr85B+OtO8SgQp1ssRmc7u7GGkegukZKK/C07Szi8AppZmYCzq
+HGmmPIXAsXlBB0O/CbXgEhPu4WvCY6kIPcYEyvoK1I+EP1+x/4Efu+YfJJpgf99B
+iWtOKG+PJT+kLFXlcTmQOZPnqSRGmvm44BwWo17hjMBKe4bbcazkRFKPxFNv6zD1
+oOsiz/jsfuKcrQKS752JComOxdIJ1RpoXsvroxgwUc/hir/fQ59LSC3J1Ap3jJQm
+AxUbw+IU8XjoHKn2+eDT9rtT6T4Xb3JJl/UGeGW9KpOhGsHzUooFhPtgTTmIEN0u
+TeS2kRH8XvkFT4k+1Gp9RGTe/VCUH6TWIf3a5ORv61oEnciXa+TfRBA1BKbqZyR
+-----END PGP PUBLIC KEY BLOCK-----
+
+==== copy gpg key to the temp folder
+sysadmin@UbuntuDesktop:~$ cp julie.gpg /tmp
+sysadmin@UbuntuDesktop:~$ cp /tmp/julie.gpg ~/
+
+sysadmin@UbuntuDesktop:~$ gpg --import julie.gpg
+gpg: key A939B39601B44D20: "Julie <julie@email.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+sysadmin@UbuntuDesktop:~$ gpg --list-keys
+/home/sysadmin/.gnupg/pubring.kbx
+---------------------------------
+pub   rsa3072 2021-05-20 [SC] [expires: 2023-05-20]
+      0A23F33305DDB38C11B84657A939B39601B44D20
+uid           [ultimate] Julie <julie@email.com>
+sub   rsa3072 2021-05-20 [E] [expires: 2023-05-20]
+
+sysadmin@UbuntuDesktop:~$ echo " Hi Julie, my bank account number is 123456" > Tims_plainmessage.txt
+
+sysadmin@UbuntuDesktop:~$ gpg --armor --output Tims_encryptedmessage.txt --encrypt --recipient julie@email.com Tims_plainmessage.txt 
+sysadmin@UbuntuDesktop:~$ cat Tims_encryptedmessage.txt 
+-----BEGIN PGP MESSAGE-----
+
+hQGMAz/RmnFQGjuIAQv/ZTWia1ghzkWwYU0xkJi6gL2JwnUVEqwqR4YZSnWysHPj
+REwwgPMPr1jPoP9TPx8Myug1tkKoONGsdsadGowrDBdiLyU42s3Cn7/lQcP/F+3h
+9pih96VqVAxXangkhipGVjVW0VvVo4OwrwY78gDFwRiY5L2y/plLR9uEDv1GVJIx
+CCabdaM0SuCIbkBVQRYXUhfuw+hM+utTjtswKEGzP6M5YHlP+dcPyimUeNScZzqi
+kqHPAWmWC6uqkkRIyfOZLCv5euTjJgscoDC4V3SGyDbbDZujDhxvjuHo+qQnuSEt
+MotaWcmGQQ7jpA0is37+fNN6VUx1ioFdRhRGNj7srcpXUcc+6hlzvR8xCTCvJMPr
+uIK2ZT32a/TuceB+LRZ4B7jk+4Y9MNqIueLRJYw33G9837bQcl/7muoW0l2KD2Kt
+wqC4sus4w5Wk3PDt1anMmzkU3NYCOEY6z9T1jjSRslCeN/HPBOGiuPy8zkUaVnzU
+OYMqMwcyOuRIo9GbGkft0nwBefDnH4EffIH1wyJiQhVhjuOBzobzZKeGV7pJZIFO
+g35q79KW+3tMCzMYAubLHQi2CPhblt5DoPCyC7aD1kXbTBAhPK7xk/pJIdzNgKgP
+PwtQIcj1Y2fZE94FWuKAaZdoY9olksNccrmh5/AZQW2628YxZw+pFfw8VoAB
+=+CQW
+-----END PGP MESSAGE-----
+sysadmin@UbuntuDesktop:~$ 
+
+
+==== Decryption
+sysadmin@UbuntuDesktop:~$ cp Tims_encryptedmessage.txt /tmp
+sysadmin@UbuntuDesktop:~$ cp /tmp/Tims_encryptedmessage.txt ~/
+sysadmin@UbuntuDesktop:~$ ls Tims_encryptedmessage.txt 
+Tims_encryptedmessage.txt
+sysadmin@UbuntuDesktop:~$ gpg --output Tims_decryptedmessage.txt --decrypt Tims_encryptedmessage.txt 
+gpg: encrypted with 3072-bit RSA key, ID 3FD19A71501A3B88, created 2021-05-20
+      "Julie <julie@email.com>"
+sysadmin@UbuntuDesktop:~$ cat Tims_decryptedmessage.txt 
+ Hi Julie, my bank account number is 123456
+
+

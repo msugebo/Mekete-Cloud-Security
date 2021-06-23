@@ -1,0 +1,421 @@
+Hello my name is Dudu... 
+
+
+I live in Denver.
+
+I don't know if this is a test.
+
+Hello World!!!!
+
+Hi What is this?
+
+Can I check this?
+
+Hello World!!!!
+
+Let me check it.
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet:
+
+   Connection-specific DNS Suffix  . : localdomain
+   IPv4 Address. . . . . . . . . . . : 10.0.0.8
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 10.0.0.55
+
+Ethernet adapter VirtualBox Host-Only Network:
+
+   Connection-specific DNS Suffix  . : 
+   Link-local IPv6 Address . . . . . : fe80::2d72:2462:d04:4d15%4
+   IPv4 Address. . . . . . . . . . . : 192.168.56.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 
+
+Ethernet adapter VMware Network Adapter VMnet1:
+
+   Connection-specific DNS Suffix  . : 
+   Link-local IPv6 Address . . . . . : fe80::8d2a:52c:995b:1e5%8
+   IPv4 Address. . . . . . . . . . . : 192.168.130.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 
+
+Ethernet adapter VMware Network Adapter VMnet8:
+
+   Connection-specific DNS Suffix  . : 
+   Link-local IPv6 Address . . . . . : fe80::5978:ff4b:6104:6615%6
+   IPv4 Address. . . . . . . . . . . : 192.168.139.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 
+
+Ethernet adapter vEthernet (Default Switch):
+
+   Connection-specific DNS Suffix  . : 
+   Link-local IPv6 Address . . . . . : fe80::3dff:a62f:b282:fd0e%30
+   IPv4 Address. . . . . . . . . . . : 172.23.112.1
+   Subnet Mask . . . . . . . . . . . : 255.255.240.0
+   Default Gateway . . . . . . . . . : 
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State
+  TCP    10.0.0.8:49268         SUAB_DS:microsoft-ds   ESTABLISHED
+  TCP    10.0.0.8:50262         142.250.103.188:5228   ESTABLISHED
+  TCP    10.0.0.8:50567         SUABServer:epmap       ESTABLISHED
+  TCP    10.0.0.8:50568         SUABSERVER:49673       ESTABLISHED
+  TCP    10.0.0.8:50597         52.230.222.68:https    ESTABLISHED
+  TCP    10.0.0.8:51295         ik-in-f188:5228        ESTABLISHED
+  TCP    10.0.0.8:51453         den16s03-in-f10:https  ESTABLISHED
+  TCP    10.0.0.8:51518         40.97.150.242:https    TIME_WAIT
+  TCP    10.0.0.8:51546         ec2-54-149-94-178:https  ESTABLISHED
+  TCP    10.0.0.8:51548         52.230.222.68:https    ESTABLISHED
+  TCP    10.0.0.8:51562         52.114.128.205:https   ESTABLISHED
+  TCP    10.0.0.8:51590         10.0.0.5:8009          ESTABLISHED
+  TCP    10.0.0.8:51687         SUABServer:49673       ESTABLISHED
+  TCP    10.0.0.8:51689         SUABServer:49673       ESTABLISHED
+  TCP    10.0.0.8:51757         a23-37-116-10:https    ESTABLISHED
+  TCP    10.0.0.8:51854         65.52.242.163:https    ESTABLISHED
+  TCP    10.0.0.8:51857         13.82.27.247:https     ESTABLISHED
+  TCP    10.0.0.8:51858         13.65.40.138:https     ESTABLISHED
+  TCP    10.0.0.8:51859         40.83.183.81:https     ESTABLISHED
+  TCP    10.0.0.8:51872         104.42.50.130:https    ESTABLISHED
+  TCP    10.0.0.8:51989         40.97.156.98:https     ESTABLISHED
+  TCP    10.0.0.8:54128         40.97.158.130:https    ESTABLISHED
+  TCP    10.0.0.8:55341         40.97.158.130:https    ESTABLISHED
+  TCP    10.0.0.8:55510         40.97.156.114:https    ESTABLISHED
+  TCP    10.0.0.8:55884         40.97.49.178:https     TIME_WAIT
+  TCP    10.0.0.8:55935         40.97.159.98:https     ESTABLISHED
+  TCP    10.0.0.8:55936         40.97.159.98:https     ESTABLISHED
+  TCP    10.0.0.8:56223         52.114.158.185:https   ESTABLISHED
+  TCP    10.0.0.8:56340         40.97.156.98:https     ESTABLISHED
+  TCP    10.0.0.8:56341         40.97.156.98:https     ESTABLISHED
+  TCP    10.0.0.8:56790         40.97.51.66:https      ESTABLISHED
+  TCP    10.0.0.8:56961         151.101.65.69:https    ESTABLISHED
+  TCP    10.0.0.8:56967         iad23s26-in-f194:https  TIME_WAIT
+  TCP    10.0.0.8:56969         a23-48-15-100:https    ESTABLISHED
+  TCP    10.0.0.8:56972         iad23s26-in-f193:https  TIME_WAIT
+  TCP    10.0.0.8:56973         151.101.68.193:https   ESTABLISHED
+  TCP    10.0.0.8:56982         a23-37-116-224:https   ESTABLISHED
+  TCP    10.0.0.8:56984         lga15s45-in-f2:https   TIME_WAIT
+  TCP    10.0.0.8:56986         den02s01-in-f10:https  TIME_WAIT
+  TCP    10.0.0.8:57104         52.94.226.39:https     TIME_WAIT
+  TCP    10.0.0.8:57110         52.114.128.82:https    ESTABLISHED
+  TCP    10.0.0.8:57118         40.97.150.82:https     ESTABLISHED
+  TCP    10.0.0.8:57156         104.21.88.213:https    ESTABLISHED
+  TCP    10.0.0.8:57165         server-143-204-39-227:https  ESTABLISHED
+  TCP    10.0.0.8:57176         prebid:https           ESTABLISHED
+  TCP    10.0.0.8:57183         ec2-54-215-217-222:https  ESTABLISHED
+  TCP    10.0.0.8:57185         204.237.133.116:https  ESTABLISHED
+  TCP    10.0.0.8:57187         104.16.68.69:https     ESTABLISHED
+  TCP    10.0.0.8:57190         ec2-54-71-193-180:https  ESTABLISHED
+  TCP    10.0.0.8:57216         218:https              ESTABLISHED
+  TCP    10.0.0.8:57223         151.101.70.49:https    ESTABLISHED
+  TCP    10.0.0.8:57225         den02s01-in-f2:https   ESTABLISHED
+  TCP    10.0.0.8:57227         ec2-54-84-92-238:https  ESTABLISHED
+  TCP    10.0.0.8:57262         155:https              TIME_WAIT
+  TCP    10.0.0.8:57275         126:https              TIME_WAIT
+  TCP    10.0.0.8:57276         104.18.99.194:https    ESTABLISHED
+  TCP    10.0.0.8:57294         204.237.133.120:https  TIME_WAIT
+  TCP    10.0.0.8:57297         204.237.133.120:https  TIME_WAIT
+  TCP    10.0.0.8:57298         204.237.133.120:https  TIME_WAIT
+  TCP    10.0.0.8:57301         ec2-52-52-67-26:https  ESTABLISHED
+  TCP    10.0.0.8:57302         den02s01-in-f19:https  TIME_WAIT
+  TCP    10.0.0.8:57318         137:https              TIME_WAIT
+  TCP    10.0.0.8:57328         104.36.113.24:https    TIME_WAIT
+  TCP    10.0.0.8:57342         ip33:https             TIME_WAIT
+  TCP    10.0.0.8:57363         a104-121-208-167:https  ESTABLISHED
+  TCP    10.0.0.8:57367         a104-121-208-167:https  ESTABLISHED
+  TCP    10.0.0.8:57377         114:https              TIME_WAIT
+  TCP    10.0.0.8:57378         ip181:https            TIME_WAIT
+  TCP    10.0.0.8:57395         151.101.69.44:https    ESTABLISHED
+  TCP    10.0.0.8:57423         ip177:https            TIME_WAIT
+  TCP    10.0.0.8:57435         212:https              TIME_WAIT
+  TCP    10.0.0.8:57450         177:https              TIME_WAIT
+  TCP    10.0.0.8:57452         104.16.19.94:https     ESTABLISHED
+  TCP    10.0.0.8:57469         server-143-204-25-121:https  ESTABLISHED
+  TCP    10.0.0.8:57475         146:https              ESTABLISHED
+  TCP    10.0.0.8:57476         a104-121-208-167:https  ESTABLISHED
+  TCP    10.0.0.8:57479         65:https               TIME_WAIT
+  TCP    10.0.0.8:57486         104.244.42.67:https    ESTABLISHED
+  TCP    10.0.0.8:57488         49:https               ESTABLISHED
+  TCP    10.0.0.8:57511         154:https              TIME_WAIT
+  TCP    10.0.0.8:57512         211:https              TIME_WAIT
+  TCP    10.0.0.8:57531         238:https              TIME_WAIT
+  TCP    10.0.0.8:57534         104.18.20.134:https    ESTABLISHED
+  TCP    10.0.0.8:57540         233:https              TIME_WAIT
+  TCP    10.0.0.8:57542         173:https              TIME_WAIT
+  TCP    10.0.0.8:57551         151.101.69.253:https   ESTABLISHED
+  TCP    10.0.0.8:57560         1:https                TIME_WAIT
+  TCP    10.0.0.8:57593         any-in-2215:https      TIME_WAIT
+  TCP    10.0.0.8:57597         iad23s26-in-f202:https  TIME_WAIT
+  TCP    10.0.0.8:57599         par21s05-in-f3:https   ESTABLISHED
+  TCP    10.0.0.8:57613         den16s03-in-f1:https   TIME_WAIT
+  TCP    10.0.0.8:57643         65:https               TIME_WAIT
+  TCP    10.0.0.8:57662         104.16.11.243:https    ESTABLISHED
+  TCP    10.0.0.8:57671         104.22.25.87:https     ESTABLISHED
+  TCP    10.0.0.8:57672         104.26.3.78:https      ESTABLISHED
+  TCP    10.0.0.8:57681         104.18.12.5:https      ESTABLISHED
+  TCP    10.0.0.8:57692         g1:https               TIME_WAIT
+  TCP    10.0.0.8:57693         244:https              TIME_WAIT
+  TCP    10.0.0.8:57699         30:https               TIME_WAIT
+  TCP    10.0.0.8:57728         216.46.185.183:https   ESTABLISHED
+  TCP    10.0.0.8:57733         216.46.185.184:https   ESTABLISHED
+  TCP    10.0.0.8:57738         172.67.73.228:https    ESTABLISHED
+  TCP    10.0.0.8:57741         40.97.158.162:https    ESTABLISHED
+  TCP    10.0.0.8:57748         8.39.36.145:https      ESTABLISHED
+  TCP    10.0.0.8:57749         206:https              ESTABLISHED
+  TCP    10.0.0.8:57757         a23-44-12-215:https    ESTABLISHED
+  TCP    10.0.0.8:57763         den02s02-in-f14:https  TIME_WAIT
+  TCP    10.0.0.8:57765         139:https              ESTABLISHED
+  TCP    10.0.0.8:57769         a23-6-169-40:https     ESTABLISHED
+  TCP    10.0.0.8:57804         den02s02-in-f10:https  CLOSE_WAIT
+  TCP    10.0.0.8:57814         172.67.71.254:https    ESTABLISHED
+  TCP    10.0.0.8:57840         151.101.69.194:https   ESTABLISHED
+  TCP    10.0.0.8:57841         server-143-204-25-2:https  ESTABLISHED
+  TCP    10.0.0.8:57842         ec2-34-214-4-242:https  ESTABLISHED
+  TCP    10.0.0.8:57846         222:https              TIME_WAIT
+  TCP    10.0.0.8:57852         a23-44-12-249:https    ESTABLISHED
+  TCP    10.0.0.8:57853         a23-37-117-223:https   ESTABLISHED
+  TCP    10.0.0.8:57867         ec2-44-240-161-207:https  ESTABLISHED
+  TCP    10.0.0.8:57894         40.97.51.66:https      TIME_WAIT
+  TCP    10.0.0.8:57895         40.97.51.66:https      ESTABLISHED
+  TCP    10.0.0.8:57916         46:https               ESTABLISHED
+  TCP    10.0.0.8:57923         ip-185-184-10-30:https  ESTABLISHED
+  TCP    10.0.0.8:57927         172.67.74.207:https    ESTABLISHED
+  TCP    10.0.0.8:57928         151.101.69.16:https    ESTABLISHED
+  TCP    10.0.0.8:57994         40.97.158.162:https    TIME_WAIT
+  TCP    10.0.0.8:57995         40.97.158.162:https    TIME_WAIT
+  TCP    10.0.0.8:57996         40.97.158.162:https    TIME_WAIT
+  TCP    10.0.0.8:58007         8.39.36.194:https      ESTABLISHED
+  TCP    10.0.0.8:58014         65.8.233.39:https      TIME_WAIT
+  TCP    10.0.0.8:58015         lga15s45-in-f2:https   ESTABLISHED
+  TCP    10.0.0.8:58016         65.8.233.2:https       TIME_WAIT
+  TCP    10.0.0.8:58017         a23-44-13-171:https    TIME_WAIT
+  TCP    10.0.0.8:58019         pr-ats-ing:https       TIME_WAIT
+  TCP    10.0.0.8:58022         a23-37-117-172:https   ESTABLISHED
+  TCP    10.0.0.8:58023         a23-37-117-172:https   ESTABLISHED
+  TCP    10.0.0.8:58028         ec2-35-169-133-103:https  ESTABLISHED
+  TCP    10.0.0.8:58046         a23-37-116-52:https    ESTABLISHED
+  TCP    10.0.0.8:58055         a23-37-116-52:https    ESTABLISHED
+  TCP    10.0.0.8:58056         a23-37-116-52:https    ESTABLISHED
+  TCP    10.0.0.8:58080         65.8.233.99:https      ESTABLISHED
+  TCP    10.0.0.8:58084         a23-37-117-75:https    TIME_WAIT
+  TCP    10.0.0.8:58090         a23-48-15-79:https     TIME_WAIT
+  TCP    10.0.0.8:58112         ec2-52-39-214-89:https  ESTABLISHED
+  TCP    10.0.0.8:58114         a104-65-168-94:https   ESTABLISHED
+  TCP    10.0.0.8:58115         ec2-34-209-21-51:https  ESTABLISHED
+  TCP    10.0.0.8:58117         a-0005:https           ESTABLISHED
+  TCP    10.0.0.8:58130         40.70.229.150:https    TIME_WAIT
+  TCP    10.0.0.8:58135         den02s02-in-f5:https   ESTABLISHED
+  TCP    10.0.0.8:58144         a23-48-15-79:https     TIME_WAIT
+  TCP    10.0.0.8:58146         bidder:https           TIME_WAIT
+  TCP    10.0.0.8:58150         a23-37-117-75:https    TIME_WAIT
+  TCP    10.0.0.8:58151         den02s01-in-f3:https   TIME_WAIT
+  TCP    10.0.0.8:58165         static:https           ESTABLISHED
+  TCP    10.0.0.8:58168         a23-37-116-25:https    TIME_WAIT
+  TCP    10.0.0.8:58170         a23-37-116-25:https    TIME_WAIT
+  TCP    10.0.0.8:58171         54.239.17.112:https    TIME_WAIT
+  TCP    10.0.0.8:58172         54.239.17.112:https    TIME_WAIT
+  TCP    10.0.0.8:58173         den02s01-in-f6:https   TIME_WAIT
+  TCP    10.0.0.8:58175         lga15s45-in-f6:https   TIME_WAIT
+  TCP    10.0.0.8:58176         a23-44-13-171:https    TIME_WAIT
+  TCP    10.0.0.8:58179         52.94.208.73:https     ESTABLISHED
+  TCP    10.0.0.8:58184         72:https               ESTABLISHED
+  TCP    10.0.0.8:58185         a104-121-208-167:https  TIME_WAIT
+  TCP    10.0.0.8:58190         ec2-54-203-112-76:https  ESTABLISHED
+  TCP    10.0.0.8:58210         a23-37-117-75:https    TIME_WAIT
+  TCP    10.0.0.8:58212         bidder:https           TIME_WAIT
+  TCP    10.0.0.8:58215         a23-48-15-79:https     TIME_WAIT
+  TCP    10.0.0.8:58222         14:https               ESTABLISHED
+  TCP    10.0.0.8:58226         216.200.233.76:https   ESTABLISHED
+  TCP    10.0.0.8:58230         216.200.232.201:https  ESTABLISHED
+  TCP    10.0.0.8:58231         a23-66-164-168:https   TIME_WAIT
+  TCP    10.0.0.8:58234         server-143-204-25-118:https  ESTABLISHED
+  TCP    10.0.0.8:58239         52.114.20.18:https     ESTABLISHED
+  TCP    10.0.0.8:58249         den02s02-in-f5:https   ESTABLISHED
+  TCP    10.0.0.8:58259         23.96.34.208:https     ESTABLISHED
+  TCP    10.0.0.8:58263         a23-48-15-79:https     TIME_WAIT
+  TCP    10.0.0.8:58264         bidder:https           TIME_WAIT
+  TCP    10.0.0.8:58268         a23-37-117-75:https    TIME_WAIT
+  TCP    10.0.0.8:58269         SUABServer:epmap       TIME_WAIT
+  TCP    10.0.0.8:58270         SUABServer:49670       TIME_WAIT
+  TCP    10.0.0.8:58271         LS520DDFB:netbios-ssn  TIME_WAIT
+  TCP    10.0.0.8:58283         edge-atlas-shv-01-any2:https  ESTABLISHED
+  TCP    10.0.0.8:58287         ec2-54-193-34-141:https  ESTABLISHED
+  TCP    10.0.0.8:58289         ec2-54-68-137-104:https  ESTABLISHED
+  TCP    10.0.0.8:58293         74.119.118.138:https   TIME_WAIT
+  TCP    10.0.0.8:58295         sjc03-login:https      ESTABLISHED
+  TCP    10.0.0.8:58296         ec2-52-202-1-196:https  ESTABLISHED
+  TCP    10.0.0.8:58297         a23-37-116-25:https    TIME_WAIT
+  TCP    10.0.0.8:58300         ec2-54-183-140-207:https  ESTABLISHED
+  TCP    10.0.0.8:58308         lga15s45-in-f22:https  ESTABLISHED
+  TCP    10.0.0.8:58318         lhr25s14-in-f3:https   ESTABLISHED
+  TCP    10.0.0.8:58326         65.8.242.165:https     ESTABLISHED
+  TCP    10.0.0.8:58329         a23-37-117-75:https    ESTABLISHED
+  TCP    10.0.0.8:58330         548:https              ESTABLISHED
+  TCP    10.0.0.8:58335         a23-37-117-75:https    CLOSE_WAIT
+  TCP    10.0.0.8:58336         548:https              ESTABLISHED
+  TCP    10.0.0.8:58337         bidder:https           TIME_WAIT
+  TCP    10.0.0.8:58339         a23-48-15-79:https     ESTABLISHED
+  TCP    10.0.0.8:58341         a23-48-15-79:https     CLOSE_WAIT
+  TCP    10.0.0.8:58345         ec2-54-219-241-183:https  ESTABLISHED
+  TCP    10.0.0.8:58346         ec2-54-80-39-215:https  ESTABLISHED
+  TCP    10.0.0.8:58347         209:https              ESTABLISHED
+  TCP    10.0.0.8:58348         209:https              ESTABLISHED
+  TCP    10.0.0.8:58350         62:https               ESTABLISHED
+  TCP    10.0.0.8:58352         52.94.232.32:https     TIME_WAIT
+  TCP    10.0.0.8:58353         ec2-54-83-83-224:https  ESTABLISHED
+  TCP    10.0.0.8:58354         a23-44-13-171:https    ESTABLISHED
+  TCP    10.0.0.8:58355         209:https              ESTABLISHED
+  TCP    10.0.0.8:58356         ec2-54-241-137-37:https  ESTABLISHED
+  TCP    10.0.0.8:58357         ec2-52-53-143-227:https  ESTABLISHED
+  TCP    10.0.0.8:58358         52.119.162.153:https   ESTABLISHED
+  TCP    10.0.0.8:58359         52.119.162.153:https   ESTABLISHED
+  TCP    10.0.0.8:58361         ec2-44-241-149-35:https  ESTABLISHED
+  TCP    10.0.0.8:58362         74.214.196.139:https   ESTABLISHED
+  TCP    10.0.0.8:58364         69.90.254.78:https     ESTABLISHED
+  TCP    10.0.0.8:58365         199.127.204.142:https  ESTABLISHED
+  TCP    10.0.0.8:58366         207.198.113.171:https  CLOSING
+  TCP    10.0.0.8:58367         222:https              ESTABLISHED
+  TCP    10.0.0.8:58368         ec2-44-239-215-172:https  ESTABLISHED
+  TCP    10.0.0.8:58369         ip-185-184-8-30:https  SYN_SENT
+  TCP    10.0.0.8:58370         204.2.255.226:https    ESTABLISHED
+  TCP    10.0.0.8:58372         cm020:https            SYN_SENT
+  TCP    10.0.0.8:58375         ec2-3-86-192-220:https  ESTABLISHED
+  TCP    10.0.0.8:58377         ip-185-184-8-30:https  SYN_SENT
+  TCP    10.0.0.8:58378         cm020:https            CLOSE_WAIT
+  TCP    10.0.0.8:58380         a104-65-168-94:https   ESTABLISHED
+  TCP    10.0.0.8:58381         ec2-18-144-106-164:https  ESTABLISHED
+  TCP    10.0.0.8:58382         177:https              ESTABLISHED
+  TCP    10.0.0.8:58383         ec2-3-86-192-220:https  ESTABLISHED
+  TCP    10.0.0.8:58384         ec2-18-144-106-164:https  ESTABLISHED
+  TCP    10.0.0.8:58385         199.127.204.142:https  ESTABLISHED
+  TCP    10.0.0.8:60962         NAS1603A6:microsoft-ds  ESTABLISHED
+  TCP    10.0.0.8:61247         do-78:https            ESTABLISHED
+  TCP    10.0.0.8:61692         SUABServer:49673       ESTABLISHED
+  TCP    10.0.0.8:61752         ec2-52-0-254-188:4244  ESTABLISHED
+  TCP    127.0.0.1:135          lmlicenses:51688       ESTABLISHED
+  TCP    127.0.0.1:5354         lmlicenses:49674       ESTABLISHED
+  TCP    127.0.0.1:5354         lmlicenses:49681       ESTABLISHED
+  TCP    127.0.0.1:5354         lmlicenses:49684       ESTABLISHED
+  TCP    127.0.0.1:5354         lmlicenses:49685       ESTABLISHED
+  TCP    127.0.0.1:9010         lmlicenses:51308       ESTABLISHED
+  TCP    127.0.0.1:9100         lmlicenses:51313       ESTABLISHED
+  TCP    127.0.0.1:13823        lmlicenses:51291       ESTABLISHED
+  TCP    127.0.0.1:15000        lmlicenses:50910       ESTABLISHED
+  TCP    127.0.0.1:18809        lmlicenses:49686       ESTABLISHED
+  TCP    127.0.0.1:18819        lmlicenses:51640       ESTABLISHED
+  TCP    127.0.0.1:22350        lmlicenses:51630       ESTABLISHED
+  TCP    127.0.0.1:27015        lmlicenses:49683       ESTABLISHED
+  TCP    127.0.0.1:30830        lmlicenses:51215       ESTABLISHED
+  TCP    127.0.0.1:30831        lmlicenses:51216       ESTABLISHED
+  TCP    127.0.0.1:49674        lmlicenses:5354        ESTABLISHED
+  TCP    127.0.0.1:49681        lmlicenses:5354        ESTABLISHED
+  TCP    127.0.0.1:49683        lmlicenses:27015       ESTABLISHED
+  TCP    127.0.0.1:49684        lmlicenses:5354        ESTABLISHED
+  TCP    127.0.0.1:49685        lmlicenses:5354        ESTABLISHED
+  TCP    127.0.0.1:49686        lmlicenses:18809       ESTABLISHED
+  TCP    127.0.0.1:49688        lmlicenses:49689       ESTABLISHED
+  TCP    127.0.0.1:49689        lmlicenses:49688       ESTABLISHED
+  TCP    127.0.0.1:50910        lmlicenses:15000       ESTABLISHED
+  TCP    127.0.0.1:50912        lmlicenses:51385       ESTABLISHED
+  TCP    127.0.0.1:50912        lmlicenses:51386       ESTABLISHED
+  TCP    127.0.0.1:51215        lmlicenses:30830       ESTABLISHED
+  TCP    127.0.0.1:51216        lmlicenses:30831       ESTABLISHED
+  TCP    127.0.0.1:51246        lmlicenses:65001       ESTABLISHED
+  TCP    127.0.0.1:51291        lmlicenses:13823       ESTABLISHED
+  TCP    127.0.0.1:51308        lmlicenses:9010        ESTABLISHED
+  TCP    127.0.0.1:51313        lmlicenses:9100        ESTABLISHED
+  TCP    127.0.0.1:51375        lmlicenses:51376       ESTABLISHED
+  TCP    127.0.0.1:51376        lmlicenses:51375       ESTABLISHED
+  TCP    127.0.0.1:51377        lmlicenses:51378       ESTABLISHED
+  TCP    127.0.0.1:51378        lmlicenses:51377       ESTABLISHED
+  TCP    127.0.0.1:51379        lmlicenses:51380       ESTABLISHED
+  TCP    127.0.0.1:51380        lmlicenses:51379       ESTABLISHED
+  TCP    127.0.0.1:51381        lmlicenses:51382       ESTABLISHED
+  TCP    127.0.0.1:51382        lmlicenses:51381       ESTABLISHED
+  TCP    127.0.0.1:51385        lmlicenses:50912       ESTABLISHED
+  TCP    127.0.0.1:51386        lmlicenses:50912       ESTABLISHED
+  TCP    127.0.0.1:51447        lmlicenses:51448       ESTABLISHED
+  TCP    127.0.0.1:51448        lmlicenses:51447       ESTABLISHED
+  TCP    127.0.0.1:51630        lmlicenses:22350       ESTABLISHED
+  TCP    127.0.0.1:51640        lmlicenses:18819       ESTABLISHED
+  TCP    127.0.0.1:51688        lmlicenses:epmap       ESTABLISHED
+  TCP    127.0.0.1:57802        lmlicenses:57803       ESTABLISHED
+  TCP    127.0.0.1:57803        lmlicenses:57802       ESTABLISHED
+  TCP    127.0.0.1:58188        lmlicenses:40505       TIME_WAIT
+  TCP    127.0.0.1:58241        lmlicenses:40505       TIME_WAIT
+  TCP    127.0.0.1:58307        lmlicenses:40505       TIME_WAIT
+  TCP    127.0.0.1:58387        lmlicenses:40505       TIME_WAIT
+  TCP    127.0.0.1:58388        lmlicenses:6468        SYN_SENT
+  TCP    127.0.0.1:61734        lmlicenses:61735       ESTABLISHED
+  TCP    127.0.0.1:61735        lmlicenses:61734       ESTABLISHED
+  TCP    127.0.0.1:61736        lmlicenses:61737       ESTABLISHED
+  TCP    127.0.0.1:61737        lmlicenses:61736       ESTABLISHED
+  TCP    127.0.0.1:61747        lmlicenses:61748       ESTABLISHED
+  TCP    127.0.0.1:61748        lmlicenses:61747       ESTABLISHED
+  TCP    127.0.0.1:61749        lmlicenses:61750       ESTABLISHED
+  TCP    127.0.0.1:61750        lmlicenses:61749       ESTABLISHED
+  TCP    127.0.0.1:65001        lmlicenses:51246       ESTABLISHED
+
+Pinging 10.0.0.8 with 32 bytes of data:
+Reply from 10.0.0.8: bytes=32 time<1ms TTL=128
+Reply from 10.0.0.8: bytes=32 time<1ms TTL=128
+Reply from 10.0.0.8: bytes=32 time<1ms TTL=128
+Reply from 10.0.0.8: bytes=32 time<1ms TTL=128
+
+Ping statistics for 10.0.0.8:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+Usage: ping [-t] [-a] [-n count] [-l size] [-f] [-i TTL] [-v TOS]
+            [-r count] [-s count] [[-j host-list] | [-k host-list]]
+            [-w timeout] [-R] [-S srcaddr] [-c compartment] [-p]
+            [-4] [-6] target_name
+
+Options:
+    -t             Ping the specified host until stopped.
+                   To see statistics and continue - type Control-Break;
+                   To stop - type Control-C.
+    -a             Resolve addresses to hostnames.
+    -n count       Number of echo requests to send.
+    -l size        Send buffer size.
+    -f             Set Don't Fragment flag in packet (IPv4-only).
+    -i TTL         Time To Live.
+    -v TOS         Type Of Service (IPv4-only. This setting has been deprecated
+                   and has no effect on the type of service field in the IP
+                   Header).
+    -r count       Record route for count hops (IPv4-only).
+    -s count       Timestamp for count hops (IPv4-only).
+    -j host-list   Loose source route along host-list (IPv4-only).
+    -k host-list   Strict source route along host-list (IPv4-only).
+    -w timeout     Timeout in milliseconds to wait for each reply.
+    -R             Use routing header to test reverse route also (IPv6-only).
+                   Per RFC 5095 the use of this routing header has been
+                   deprecated. Some systems may drop echo requests if
+                   this header is used.
+    -S srcaddr     Source address to use.
+    -c compartment Routing compartment identifier.
+    -p             Ping a Hyper-V Network Virtualization provider address.
+    -4             Force using IPv4.
+    -6             Force using IPv6.
+
+  TCP    10.0.0.8:51518         40.97.150.242:https    TIME_WAIT
+  TCP    10.0.0.8:51989         40.97.156.98:https     ESTABLISHED
+  TCP    10.0.0.8:54128         40.97.158.130:https    ESTABLISHED
+  TCP    10.0.0.8:55341         40.97.158.130:https    ESTABLISHED
+  TCP    10.0.0.8:55510         40.97.156.114:https    ESTABLISHED
+  TCP    10.0.0.8:55884         40.97.49.178:https     TIME_WAIT
+  TCP    10.0.0.8:55935         40.97.159.98:https     ESTABLISHED
+  TCP    10.0.0.8:55936         40.97.159.98:https     ESTABLISHED
+  TCP    10.0.0.8:56340         40.97.156.98:https     ESTABLISHED
+  TCP    10.0.0.8:56341         40.97.156.98:https     ESTABLISHED
+  TCP    10.0.0.8:56790         40.97.51.66:https      ESTABLISHED
+  TCP    10.0.0.8:57118         40.97.150.82:https     ESTABLISHED
+  TCP    10.0.0.8:57741         40.97.158.162:https    ESTABLISHED
+  TCP    10.0.0.8:57894         40.97.51.66:https      TIME_WAIT
+  TCP    10.0.0.8:57895         40.97.51.66:https      ESTABLISHED
+  TCP    10.0.0.8:57994         40.97.158.162:https    TIME_WAIT
+  TCP    10.0.0.8:57995         40.97.158.162:https    TIME_WAIT
+  TCP    10.0.0.8:57996         40.97.158.162:https    TIME_WAIT

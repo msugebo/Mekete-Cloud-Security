@@ -1,0 +1,41 @@
+================ Advanced Bash ================
+
+
+$which bash (to find the bash file)
+
+#!/bin/bash
+
+
+#!/usr/bin/env bash (assign bash dynamically)
+
+========= add custom scripts =========
+$echo #PATH
+
+sysadmin@UbuntuDesktop:~$ PATH=$PATH:/home/sysadmin/Mekete_scripts/
+sysadmin@UbuntuDesktop:~$ echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/sysadmin/Mekete_scripts/
+
+======= alias custom scripts =======
+
+sysadmin@UbuntuDesktop:~$ echo "export PATH=$PATH: /home/sysadmin/Mekete_Scripts" >> ~/.bashrc
+
+
+
+| pipe
+&& (ampersand-ambersand) if successful
+; command separator
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

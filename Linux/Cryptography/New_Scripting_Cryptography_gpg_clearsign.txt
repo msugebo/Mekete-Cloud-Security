@@ -1,0 +1,15 @@
+============= Cryptography =================
+========= GPG clearsign ============
+sysadmin@UbuntuDesktop:~$ gpg --clearsign -u meketess@gmail.com reminder.txt
+sysadmin@UbuntuDesktop:~$ gpg --verify -u meketess@gmail.com reminder.txt.asc 
+gpg: Signature made Sat 22 May 2021 10:55:54 AM MDT
+gpg:                using RSA key DB483351F18F6475FD8971A3B129B778E4E53A2F
+gpg:                issuer "meketess@gmail.com"
+gpg: checking the trustdb
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   5  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 5u
+gpg: next trustdb check due at 2023-05-20
+gpg: Good signature from "Mekete <meketess@gmail.com>" [ultimate]
+gpg: WARNING: not a detached signature; file 'reminder.txt' was NOT verified!
+
+

@@ -1,0 +1,25 @@
+ ============ Scheduling with cron =====================
+
+$pwd 
+$systemctl status cron (check if cron is active and enabled)
+
+$ crontab -l (see list of jobs)
+
+$sudo ls /var/spool/cron/crontabs/username (check if it exists)
+
+
+mv /home/sysadmin/Downloads/doctors*.docx /usr/share/doctors/;
+
+$ sudo ls -l /var/spool/cron/crontabs/ (check if it exists)
+
+cd /etc
+
+ls cron.daily
+ls cron.weekly
+ls cron.monthly
+
+
+
+
+
+

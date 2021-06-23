@@ -1,0 +1,17 @@
+===== Remove Packages with Gitbash ========
+ nano name example.sh1
+Gitbash Script with nano
+$packagename="Skype"
+choco info $packagename
+choco uninstall -y $packagename
+              === execute  ===
+
+			  .\example.sh1
+
+
+			  ==================
+
+
+
+
+

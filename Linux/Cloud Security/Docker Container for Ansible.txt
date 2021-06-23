@@ -1,0 +1,114 @@
+Containers
+
+sudo apt-get update
+sudo apt install docker.io
+sudo docker pull cyberxsecurity/ubuntu:bionic
+sudo docker run -ti cyberxsecurity/ubuntu:bionic bash
+
+$sudo docker pull cyberxsecurity/ansible
+
+$sudo docker run -ti cyberxsecurity/ansible bash
+
+	======= List containers
+azadmin@Jump-Box-Provisioner:~$ sudo docker container list -a
+CONTAINER ID   IMAGE                          COMMAND                  CREATED        STATUS                    PORTS     NAMES
+41e829921be5   cyberxsecurity/ubuntu:bionic   "bash"                   45 hours ago   Exited (0) 45 hours ago             wonderful_visvesvaraya
+fea24f310e34   cyberxsecurity/ansible         "/bin/sh -c /bin/bas�"   45 hours ago   Exited (0) 45 hours ago             ecstatic_euclid
+
+========= go to container
+azadmin@Jump-Box-Provisioner:~$ sudo docker start wonderful_visvesvaraya
+wonderful_visvesvaraya
+
+========= running container
+azadmin@Jump-Box-Provisioner:~$ sudo docker ps
+CONTAINER ID   IMAGE                          COMMAND   CREATED        STATUS          PORTS     NAMES
+41e829921be5   cyberxsecurity/ubuntu:bionic   "bash"    45 hours ago   Up 28 seconds             wonderful_visvesvaraya
+
+===== Attach to the container
+azadmin@Jump-Box-Provisioner:~$ sudo docker attach wonderful_visvesvaraya
+
+===== generate public key from the container
+root@41e829921be5:/#ssh-keygen
+root@41e829921be5:/#cat ~/.ssh/id_rsa.pub
+
+
+==== add the remote_user
+root@41e829921be5:/#cd /etc/ansible
+root@fea24f310e34:/#etc/ansible#nano ancible.cfg
+uncomment 
+remote_user =  azadmin
+
+==== modify hosts file on the container
+root@41e829921be5:/#cd /etc/ansible
+root@fea24f310e34:/#etc/ansible#nano hosts
+oncomment
+[webservers]
+10.0.0.5 ansilble_payton_interpreter=/usr/bin/paython3
+10.0.0.6 ansilble_payton_interpreter=/usr/bin/paython3
+
+=== ping to vms
+root@41e829921be5:/#ansible webservers -m ping 
+
+Containers Ansible YAML
+
+===== Example 1
+root@fea24f310e34:~# cd /etc/ansible/
+root@fea24f310e34:/etc/ansible# nano my-playbook.yml
+---
+  - name: My first playbook
+    hosts: webservers
+    become: true
+    tasks:
+
+    - name: Install apache httpd (state=present is optional)
+      apt:
+        name: apache2
+        state: present
+
+==== install
+root@fea24f310e34:/etc/ansible# ansible-playbook my-playbook.yml
+===================================
+
+===== Example 2
+
+---
+  - name: My first playbook
+    hosts: webservers
+    become: true
+    tasks:
+
+    - name: Uninstall Apache
+      apt:
+        name: apache2
+        state: absent
+
+    - name: Install docker.io
+      apt:
+        update_cache: yes
+        name: docker.io
+        state: present
+
+    - name: Install Python3-pip
+      apt:
+        name: python3-pip
+        state: present
+
+    - name : Install Python Docker module
+      pip:
+        name: docker
+        state: present
+
+    - name: download and launch DVWA container
+      docker_container:
+        name: dvwa
+        image: cyberxsecurity/dvwa
+        state: started
+        restart_policy: always
+        published_ports: 80:80
+
+    - name: enable docker service
+      systemd:
+        name: docker
+        enabled: yes
+root@fea24f310e34:/etc/ansible# ansible-playbook cntr.yml
+====

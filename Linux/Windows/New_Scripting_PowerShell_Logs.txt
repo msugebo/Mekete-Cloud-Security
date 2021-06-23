@@ -1,0 +1,31 @@
+===== PowerShell Logs ==========
+
+PS C:\> Get-WinEvent -ListLog  
+
+PS C:\> Get-WinEvent -ListLog * | more 
+
+PS C:\> Get-WinEvent -LogName System | more  
+
+PS C:\> Get-WinEvent -LogName System -MaxEvents 10   
+
+PS C:\> Get-WinEvent -LogName Security -MaxEvents 10   
+
+PS C:\> Get-WinEvent -LogName Security -MaxEvents 10 | ConvertTo-Json 
+
+PS C:\> Get-WinEvent -LogName Security -MaxEvents 10 | ConvertTo-Csv 
+
+	=== Get system logs and output to file
+PS C:\> Get-WinEvent -LogName System -MaxEvents 10 | ConvertTo-Json | Out-File -FilePath C:\Logs\RecentSystemLogs.json 
+
+	=== Get security logs and output to file
+PS C:\Logs> Get-WinEvent -LogName Application -MaxEvents 10 | ConvertTo-Json | Out-File -FilePath C:\Logs\RecentApplicationLogs.json 
+
+
+	== Go to location (cd)
+PS C:\> Set-Location C:\Logs\ 
+
+	= View Directory lists
+PS C:\Logs> Get-ChildItem    
+
+	=== View Contents
+PS C:\Logs> Get-Content .\RecentApplicationLogs.json 
