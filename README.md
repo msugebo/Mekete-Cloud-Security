@@ -74,8 +74,6 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-**Note**: The following image link needs to be updated. Replace `docker_ps_output.png` with the name of your screenshot image file.  
-
 
 ![](Images/docker_ps_output.png)
 
@@ -97,16 +95,11 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the /etc/ansible/files/filebeat-config.yml file to /etc/filebeat/filebeat.yml.
+- Update the /etc/filebeat/filebeat.yml file to include the host ip, the user name and password.
+- Run the playbook, and navigate to elk public ip address to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+_ The user will need to run to download the playbook, update the files, etc._
 
 - update the files: $nano /etc/ansible/files/filebeat-playbook.yml
 - run playbooks: $ansible-playbook /etc/ansible/files/filebeat-playbook.yml
